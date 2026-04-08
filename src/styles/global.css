@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Colors: Kinetic Intelligence Design System === */
+  --color-background: #090f12;
+  --color-surface: #090f12;
+  --color-surface-dim: #090f12;
+  --color-surface-bright: #242d32;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0e1418;
+  --color-surface-container: #131b1e;
+  --color-surface-container-high: #192125;
+  --color-surface-container-highest: #1e272b;
+  --color-surface-variant: #1e272b;
+  --color-surface-tint: #71b1ff;
+
+  --color-primary: #71b1ff;
+  --color-primary-dim: #52a1f8;
+  --color-primary-container: #56a4fb;
+  --color-primary-fixed: #59a6fe;
+  --color-primary-fixed-dim: #4999ef;
+
+  --color-secondary: #cae6fe;
+  --color-secondary-dim: #bcd8ef;
+  --color-secondary-container: #2f4a5d;
+  --color-secondary-fixed: #cae6fe;
+  --color-secondary-fixed-dim: #bcd8ef;
+
+  --color-tertiary: #d28bff;
+  --color-tertiary-dim: #c97dfa;
+  --color-tertiary-container: #c77af7;
+  --color-tertiary-fixed: #d797ff;
+  --color-tertiary-fixed-dim: #cf83ff;
+
+  --color-error: #ff716c;
+  --color-error-dim: #d7383b;
+  --color-error-container: #9f0519;
+
+  --color-on-background: #ecf1f6;
+  --color-on-surface: #ecf1f6;
+  --color-on-surface-variant: #a6acb0;
+  --color-on-primary: #002f58;
+  --color-on-primary-container: #002444;
+  --color-on-secondary: #3a5568;
+  --color-on-secondary-container: #b8d4eb;
+  --color-on-tertiary: #45006b;
+  --color-on-tertiary-container: #32004f;
+  --color-on-error: #490006;
+  --color-on-error-container: #ffa8a3;
+
+  --color-outline: #70767a;
+  --color-outline-variant: #43494c;
+
+  --color-inverse-surface: #f5fafe;
+  --color-inverse-on-surface: #50565a;
+  --color-inverse-primary: #0061aa;
+
+  /* === Typography === */
+  --font-headline: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-label: "Manrope", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-body antialiased;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+}
+
+@utility glow-blue {
+  box-shadow: 0 0 20px rgba(113, 177, 255, 0.15);
+}
+
+@utility glow-blue-hover {
+  box-shadow: 0 0 30px rgba(113, 177, 255, 0.25);
+}
+
+@utility ambient-shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@utility ambient-shadow-deep {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+@utility bg-mesh {
+  background-image: radial-gradient(at 0% 0%, rgba(14, 43, 61, 0.4) 0%, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(14, 43, 61, 0.4) 0%, transparent 50%);
+}
+
+@utility gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+@utility text-gradient-primary {
+  background: linear-gradient(to right, var(--color-primary), var(--color-tertiary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

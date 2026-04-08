@@ -1,0 +1,16 @@
+---
+interface Props {
+  icon: string;
+  label: string;
+}
+
+const { icon, label } = Astro.props;
+---
+
+<div class="bg-surface-container-low p-6 md:p-8 rounded-xl glow-blue flex flex-col justify-between aspect-square group hover:bg-surface-container hover:glow-blue-hover transition-all duration-200 cursor-pointer">
+  <span class="material-symbols-outlined text-primary text-3xl md:text-4xl mb-4">{icon}</span>
+  <div class="flex items-center justify-between gap-2">
+    <span class="font-headline font-semibold text-base md:text-lg">{label}</span>
+    <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
+  </div>
+</div>

@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Serendipe — Home V2">
+  <!-- TopAppBar Navigation -->
+  <header class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 ambient-shadow">
+    <nav class="flex flex-row-reverse lg:flex-row justify-between items-center px-6 lg:px-12 xl:px-20 h-16 lg:h-20 w-full max-w-[1440px] mx-auto">
+      <h1 class="text-2xl font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent font-headline tracking-tighter">Serendipe</h1>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-10">
+        <a href="#ecosystem" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Ecosystem</a>
+        <a href="#stats" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Performance</a>
+        <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Research</a>
+        <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity cursor-pointer scale-95 active:duration-100">search</span>
+        <span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity cursor-pointer scale-95 active:duration-100 lg:hidden">menu</span>
+        <button class="hidden lg:inline-flex gradient-primary text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(113,177,255,0.3)] transition-all duration-300">
+          Get Started
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="w-full overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between pt-16 lg:pt-20 px-6 lg:px-12 xl:px-20 overflow-hidden max-w-[1440px] mx-auto">
+      <!-- Background Light Effect -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] bg-[#0e2b3d] blur-[120px] lg:blur-[180px] rounded-full opacity-40 -z-10"></div>
+
+      <!-- Hero Text Content (appears first on desktop for left placement) -->
+      <div class="text-center lg:text-left max-w-lg lg:max-w-xl xl:max-w-2xl order-2 lg:order-1 lg:pr-12 xl:pr-20">
+        <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-tight">
+          A próxima era da <span class="text-primary">tecnologia</span> começa aqui
+        </h2>
+        <p class="text-on-surface-variant text-lg lg:text-xl mb-10 leading-relaxed font-light max-w-md lg:max-w-lg">
+          Transformando a inteligência cinética em soluções globais de infraestrutura e inovação digital.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+          <button class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(113,177,255,0.4)] transition-all duration-300 transform active:scale-95">
+            Saiba mais
+          </button>
+          <button class="hidden sm:inline-flex items-center gap-2 text-primary font-headline font-semibold text-sm hover:gap-3 transition-all duration-300">
+            Explore Framework
+            <span class="material-symbols-outlined text-lg">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Futuristic Visual Component -->
+      <div class="relative w-full max-w-sm lg:max-w-md xl:max-w-lg aspect-square mb-12 lg:mb-0 flex items-center justify-center order-1 lg:order-2 lg:flex-shrink-0">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full animate-pulse"></div>
+        <div class="relative z-10 glass-card p-8 lg:p-12 rounded-full border border-primary/20 kinetic-glow">
+          <img
+            alt="Futuristic microprocessor"
+            class="w-48 h-48 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain mix-blend-lighten"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoAgx1csTeX-L3OVkgvhQuuiXkGtJwD2y0__-MEE__GU2Vv7TCDBL-bOaPqGPqp1TBlP3UF0IfIcqamFsLRxIFCfL8TxDz4OzIcDA5Q1V2hGyvzTJBB16KWgdyCrGGGOXxM_lMMiDWspwA5eI29QL53z7nhpxg11eGPbnRDoIZ43mvXOo3US0utF_zYw9FqCprs66x5756bBaXDuGlCxAtu8zHevvRoJ4iwlQT2zvZBYmoD7kh60kjyMZJB1RJVSwIOQ1bAKmeQDFp"
+          />
+        </div>
+        <!-- Orbiting accents -->
+        <div class="absolute top-0 right-10 w-4 h-4 bg-tertiary rounded-full blur-sm opacity-60"></div>
+        <div class="absolute bottom-20 left-4 w-2 h-2 bg-primary-container rounded-full blur-[1px]"></div>
+        <div class="hidden lg:block absolute -bottom-4 right-20 w-3 h-3 bg-tertiary/40 rounded-full blur-[2px]"></div>
+        <div class="hidden lg:block absolute top-1/4 -left-6 w-2 h-2 bg-primary/60 rounded-full blur-[1px]"></div>
+      </div>
+    </section>
+
+    <!-- Nossa Escala Global Section -->
+    <section id="ecosystem" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
+      <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-20">
+          <header>
+            <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Ecosystem</span>
+            <h3 class="text-3xl lg:text-4xl xl:text-5xl font-headline font-bold">Nossa Escala Global</h3>
+            <div class="w-12 h-1 gradient-primary mt-4"></div>
+          </header>
+          <p class="hidden lg:block text-on-surface-variant text-sm max-w-sm leading-relaxed mt-6 lg:mt-0">
+            Quatro pilares de infraestrutura inteligente conectando operações em escala planetária.
+          </p>
+        </div>
+
+        <!-- Bento Grid / Glass Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+          <!-- Card 1: Networking -->
+          <div class="glass-card p-8 lg:p-10 rounded-xl group hover:bg-surface-container-highest transition-colors duration-500">
+            <div class="flex items-start justify-between mb-8">
+              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">hub</span>
+              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">01</span>
+            </div>
+            <h4 class="text-xl font-headline font-semibold mb-3">Networking</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Conectividade neural de alta performance para operações transcontinentais críticas.</p>
+          </div>
+
+          <!-- Card 2: Security -->
+          <div class="glass-card p-8 lg:p-10 rounded-xl group hover:bg-surface-container-highest transition-colors duration-500 md:mt-8 xl:mt-12">
+            <div class="flex items-start justify-between mb-8">
+              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">shield_lock</span>
+              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">02</span>
+            </div>
+            <h4 class="text-xl font-headline font-semibold mb-3">Security</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Proteção quântica e protocolos de resiliência ativa em camadas profundas.</p>
+          </div>
+
+          <!-- Card 3: Observability -->
+          <div class="glass-card p-8 lg:p-10 rounded-xl group hover:bg-surface-container-highest transition-colors duration-500 xl:mt-6">
+            <div class="flex items-start justify-between mb-8">
+              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">visibility</span>
+              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">03</span>
+            </div>
+            <h4 class="text-xl font-headline font-semibold mb-3">Observability</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Monitoramento preditivo com IA para visibilidade total do fluxo de dados.</p>
+          </div>
+
+          <!-- Card 4: Collaboration -->
+          <div class="glass-card p-8 lg:p-10 rounded-xl group hover:bg-surface-container-highest transition-colors duration-500 md:mt-8 xl:mt-16">
+            <div class="flex items-start justify-between mb-8">
+              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">groups</span>
+              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">04</span>
+            </div>
+            <h4 class="text-xl font-headline font-semibold mb-3">Collaboration</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Integração humana e digital em ambientes de inovação descentralizada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 lg:py-28 xl:py-32 px-6 lg:px-12 xl:px-20 border-t border-outline-variant/10">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0 lg:justify-between max-w-5xl xl:max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 lg:flex gap-12 lg:gap-20 xl:gap-28 w-full lg:w-auto max-w-lg lg:max-w-none text-center lg:text-left">
+          <div>
+            <div class="font-headline text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-1">24/7</div>
+            <div class="text-xs text-on-surface-variant uppercase tracking-widest">Active Intelligence</div>
+          </div>
+          <div>
+            <div class="font-headline text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-1">99.9%</div>
+            <div class="text-xs text-on-surface-variant uppercase tracking-widest">Global Uptime</div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="font-headline text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-1">140+</div>
+            <div class="text-xs text-on-surface-variant uppercase tracking-widest">Edge Nodes</div>
+          </div>
+        </div>
+        <div class="bg-surface-container-highest p-1 rounded-full px-6 flex items-center gap-3">
+          <span class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></span>
+          <span class="text-[10px] font-headline uppercase tracking-tighter text-on-surface-variant">Kinetic Framework Status: Optimal</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest w-full pt-20 lg:pt-24 pb-10 px-10 lg:px-20">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-start gap-10 lg:gap-0">
+      <div class="flex flex-col items-center lg:items-start gap-4">
+        <div class="text-xl font-bold text-on-surface font-headline tracking-tighter">Serendipe</div>
+        <p class="font-body text-[10px] uppercase tracking-[0.2em] text-on-surface-variant text-center lg:text-left max-w-xs leading-relaxed">
+          © 2024 Serendipe Institute. Kinetic Intelligence Framework.
+        </p>
+      </div>
+      <nav class="flex flex-wrap justify-center lg:justify-end gap-6 lg:gap-10">
+        <a class="font-body text-sm uppercase tracking-widest text-on-surface-variant hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="font-body text-sm uppercase tracking-widest text-on-surface-variant hover:text-white transition-colors" href="#">Terms of Tech</a>
+        <a class="font-body text-sm uppercase tracking-widest text-on-surface-variant hover:text-white transition-colors" href="#">Global Ethics</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Bottom Navigation (Mobile only) -->
+  <div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-card rounded-full px-8 py-3 flex items-center gap-10 kinetic-glow border border-primary/10">
+    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">home</span>
+    <span class="material-symbols-outlined text-on-surface-variant">biotech</span>
+    <span class="material-symbols-outlined text-on-surface-variant">lightbulb</span>
+    <span class="material-symbols-outlined text-on-surface-variant">mail</span>
+  </div>
+</Layout>
+
+<style is:global>
+  .glass-card {
+    background: rgba(30, 39, 43, 0.4);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(113, 177, 255, 0.1);
+  }
+
+  .kinetic-glow {
+    box-shadow: 0 0 20px rgba(113, 177, 255, 0.15);
+  }
+</style>

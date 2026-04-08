@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import CapabilityCard from '../components/CapabilityCard.astro';
+import StatItem from '../components/StatItem.astro';
+import Footer from '../components/Footer.astro';
+
+const capabilities = [
+  { icon: 'hub', label: 'Networking' },
+  { icon: 'fingerprint', label: 'Security' },
+  { icon: 'visibility', label: 'Observability' },
+  { icon: 'groups', label: 'Collaboration' },
+];
+
+const stats = [
+  { icon: 'router', value: '39M', description: 'Networking devices connected to our platform' },
+  { icon: 'public', value: '1B', description: 'Clients connecting monthly' },
+  { icon: 'security', value: '750B+', description: 'Security events observed daily, across networks' },
+];
+---
+
+<Layout title="Global Scale — Serendipe">
+  <Header />
+
+  <main class="pt-28 md:pt-32 lg:pt-40 pb-20 lg:pb-32 px-6 md:px-10 lg:px-16 max-w-6xl mx-auto bg-mesh">
+    <HeroSection />
+
+    <!-- Capabilities Grid -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-20 lg:mb-28">
+      {capabilities.map((cap) => (
+        <CapabilityCard icon={cap.icon} label={cap.label} />
+      ))}
+    </section>
+
+    <!-- Stats -->
+    <section class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-8 lg:gap-16">
+      {stats.map((stat) => (
+        <StatItem icon={stat.icon} value={stat.value} description={stat.description} />
+      ))}
+    </section>
+
+    <!-- Globe Visualization -->
+    <section class="mt-20 lg:mt-28">
+      <div class="relative w-full aspect-video rounded-xl lg:rounded-2xl overflow-hidden ambient-shadow-deep">
+        <img
+          alt="Global Network Visualization"
+          class="w-full h-full object-cover opacity-60"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCODm81t289yMjdtvi5beoOxQU0w9w1ME9m_GPVVw3i02oielQPgTsajRUpibWFS7nF6ajdH6os2Bv8qOD-ixSXnY9pUh75jCboZPrUgv65AzrIDxA9ArtHnjHgnMpZUO6n79rp9TzNLR6FF3IoapqZIVoRAnzrt5HASQY4j1DSRrZ_t3yIv14eyFw_x-sNx2tzfKIcpfwC1T0XJsovH7ny0tJO93bF27RvEvk0S58kjlkgwWI75wHGbRuazPnkNCAKf59cEMjwU2iA"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,85 +1,77 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import logoSerendipe from '../assets/LOGO SERENDIPE SITE.webp';
 ---
 
 <Layout title="Serendipe — Home">
   <!-- TopAppBar Navigation -->
   <header class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 ambient-shadow">
     <nav class="flex flex-row-reverse lg:flex-row justify-between items-center px-6 lg:px-12 xl:px-20 h-16 lg:h-20 w-full max-w-[1440px] mx-auto">
-      <h1 class="text-2xl font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent font-headline tracking-tighter">Serendipe</h1>
+      <a href="/">
+        <img src={logoSerendipe.src} alt="Serendipe" class="h-10 lg:h-14 w-auto" />
+      </a>
 
       <!-- Desktop Nav Links -->
       <div class="hidden lg:flex items-center gap-10">
-        <a href="#ecosystem" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Ecosystem</a>
-        <a href="#stats" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Performance</a>
-        <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Research</a>
-        <a href="#" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Contact</a>
+        <a href="#sobre" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Sobre</a>
+        <a href="#solucoes" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Soluções</a>
+        <a href="#metodo" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Método</a>
+        <a href="#processo" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Processo</a>
+        <a href="#cases" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Cases</a>
       </div>
 
       <div class="flex items-center gap-4">
-        <span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity cursor-pointer scale-95 active:duration-100">search</span>
         <span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity cursor-pointer scale-95 active:duration-100 lg:hidden">menu</span>
         <button class="hidden lg:inline-flex gradient-primary text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300">
-          Get Started
+          Agendar Análise
         </button>
       </div>
     </nav>
   </header>
 
+  <!-- Gradient defs for SVG icons (shared across sections) -->
+  <svg class="absolute w-0 h-0" aria-hidden="true">
+    <defs>
+      <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#a8c8f0" />
+        <stop offset="100%" stop-color="#4a7bb5" />
+      </linearGradient>
+    </defs>
+  </svg>
+
   <main class="w-full overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between pt-16 lg:pt-20 px-6 lg:px-12 xl:px-20 overflow-hidden">
-      <!-- Background Image -->
-      <div class="absolute inset-0 -z-20">
-        <img src="/hero-bg.png" alt="" class="w-full h-full object-cover" />
+    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-12 xl:px-20 overflow-hidden">
+      <!-- Background Video -->
+      <div class="absolute inset-0 -z-20 overflow-hidden">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <source src="/Serendipe Background (1).mp4" type="video/mp4" />
+        </video>
       </div>
       <!-- Overlay for readability -->
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-surface via-surface/70 to-surface/40"></div>
 
-      <div class="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row items-center justify-center lg:justify-between">
-
-      <!-- Hero Text Content (appears first on desktop for left placement) -->
-      <div class="text-center lg:text-left max-w-lg lg:max-w-xl xl:max-w-2xl order-2 lg:order-1 lg:pr-12 xl:pr-20">
-        <h2 class="font-headline text-[60px] font-medium tracking-tight mb-6 text-white" style="line-height: 67.98px;">
+      <div class="flex flex-col items-center justify-center text-center">
+        <h2 class="font-headline text-3xl md:text-5xl lg:text-[60px] font-medium tracking-tight mb-10 text-white whitespace-nowrap" style="line-height: 1.13;">
           Desbloqueie o Futuro da <span class="text-primary">Inovação</span>
         </h2>
-        <p class="text-on-surface-variant text-lg lg:text-xl mb-10 leading-relaxed font-light max-w-md lg:max-w-lg">
-          IA Estratégica e Lei de Informática para o Crescimento Exponencial da Sua Empresa.
+        <p class="text-on-surface-variant text-base lg:text-lg mb-10 leading-relaxed font-light max-w-2xl">
+          O Serendipe transforma a Lei de Informática em seu maior ativo de P&D, impulsionando sua empresa para a era da Inteligência Artificial com resultados preditivos e concretos. Não apenas cumprimos a Lei de Informática; nós a redefinimos, posicionando sua empresa na vanguarda da inovação.
         </p>
-        <div class="flex items-center lg:items-start">
-          <button class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 transform active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">chevron_right</span>
-            Explore nossos produtos e serviços
-          </button>
-        </div>
-      </div>
-
-      <!-- Futuristic Visual Component -->
-      <div class="relative w-full max-w-sm lg:max-w-md xl:max-w-lg aspect-square mb-12 lg:mb-0 flex items-center justify-center order-1 lg:order-2 lg:flex-shrink-0">
-        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full animate-pulse"></div>
-        <div class="relative z-10 glass-card p-8 lg:p-12 rounded-full border border-primary/20 kinetic-glow">
-          <img
-            alt="Futuristic microprocessor"
-            class="w-48 h-48 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain mix-blend-lighten"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoAgx1csTeX-L3OVkgvhQuuiXkGtJwD2y0__-MEE__GU2Vv7TCDBL-bOaPqGPqp1TBlP3UF0IfIcqamFsLRxIFCfL8TxDz4OzIcDA5Q1V2hGyvzTJBB16KWgdyCrGGGOXxM_lMMiDWspwA5eI29QL53z7nhpxg11eGPbnRDoIZ43mvXOo3US0utF_zYw9FqCprs66x5756bBaXDuGlCxAtu8zHevvRoJ4iwlQT2zvZBYmoD7kh60kjyMZJB1RJVSwIOQ1bAKmeQDFp"
-          />
-        </div>
-        <!-- Orbiting accents -->
-        <div class="absolute top-0 right-10 w-4 h-4 bg-tertiary rounded-full blur-sm opacity-60"></div>
-        <div class="absolute bottom-20 left-4 w-2 h-2 bg-primary-container rounded-full blur-[1px]"></div>
-        <div class="hidden lg:block absolute -bottom-4 right-20 w-3 h-3 bg-tertiary/40 rounded-full blur-[2px]"></div>
-        <div class="hidden lg:block absolute top-1/4 -left-6 w-2 h-2 bg-primary/60 rounded-full blur-[1px]"></div>
-      </div>
+        <button class="hero-cta gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+          Explore nossos produtos e serviços
+        </button>
       </div>
     </section>
 
     <!-- About / Value Proposition Section -->
-    <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
+    <section id="sobre" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
       <div class="max-w-7xl mx-auto flex flex-col gap-16">
         <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
           <!-- Text -->
           <div class="lg:w-[42%] lg:flex-shrink-0">
-            <h3 class="font-headline text-3xl lg:text-4xl font-medium text-white mb-6 py-4">Sobre o <span class="text-primary font-bold">instituto</span></h3>
+            <h3 class="font-headline text-3xl lg:text-[42px] xl:text-[46px] font-medium text-white mb-6 py-4">Sobre o <span class="text-primary font-bold">instituto</span></h3>
             <p class="font-body text-sm md:text-base lg:text-lg font-normal text-on-surface-variant leading-relaxed lg:leading-[1.6]">
               O Serendipe é o único Instituto de Ciência e Tecnologia do Brasil com foco exclusivo em Inteligência Artificial. Enquanto outros ICTs entregam conformidade, nós entregamos <span class="text-primary font-semibold">vantagem competitiva</span>, projetos de IA que transformam o investimento obrigatório da Lei de Informática em crescimento real para o seu negócio.
             </p>
@@ -109,7 +101,7 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- CTA Button -->
         <div class="text-center">
-          <a href="#ecosystem" class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
+          <a href="#solucoes" class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
             <span class="material-symbols-outlined text-base">chevron_right</span>
             Quero transformar meu investimento em IA
           </a>
@@ -118,11 +110,11 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Nossas Soluções de IA Section -->
-    <section id="ecosystem" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
+    <section id="solucoes" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <div class="flex flex-col items-center mb-16 lg:mb-20 text-center">
           <header>
-            <h3 class="font-headline text-4xl lg:text-[60px] font-medium text-white" style="line-height: 1.13;">Conheça nossas <span class="font-black text-primary">soluções de IA</span></h3>
+            <h3 class="font-headline text-3xl lg:text-[42px] xl:text-[46px] font-medium text-white leading-tight">Conheça nossas <span class="font-black text-primary">soluções de IA</span></h3>
           </header>
           <p class="mt-6 text-on-surface-variant text-base lg:text-lg max-w-3xl leading-relaxed">Com o Serendipe, sua empresa acessa o que há de mais avançado em Inteligência Artificial, desenhado para otimizar processos, prever tendências e maximizar seu retorno sobre o investimento em P&D.</p>
         </div>
@@ -130,36 +122,70 @@ import Layout from '../layouts/Layout.astro';
         <!-- Bento Grid / Glass Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           <!-- Card 1: OpenAI & Modelos Preditivos -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="mb-8">
-              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">psychology</span>
+          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+            <div class="mb-8 flex items-center justify-center py-2">
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M9 21h6" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M10 19h4" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M12 2v3" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <path d="M8.5 8.5c0-1.93 1.57-3.5 3.5-3.5" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <circle cx="10" cy="10" r="0.8" fill="url(#icon-gradient)"/>
+                <circle cx="14" cy="10" r="0.8" fill="url(#icon-gradient)"/>
+                <path d="M10.5 12.5c.4.3 1 .5 1.5.5s1.1-.2 1.5-.5" stroke="url(#icon-gradient)" stroke-width="0.8" stroke-linecap="round"/>
+              </svg>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">OpenAI & Modelos Preditivos</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Vá além da análise de dados. Com OpenAI, criamos modelos preditivos que antecipam o mercado, otimizam operações e revelam insights ocultos, transformando dados brutos em decisões de alto impacto.</p>
           </div>
 
           <!-- Card 2: Cloud Computing & Escalabilidade -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="mb-8">
-              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">cloud</span>
+          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+            <div class="mb-8 flex items-center justify-center py-2">
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
+                <path d="M6.5 18A4.5 4.5 0 016.5 9h.3A7 7 0 0120 11.5a3.5 3.5 0 01-.5 7H6.5z" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M8 14h2" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <path d="M12 14h4" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <path d="M9 16.5h6" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <circle cx="15" cy="12" r="0.7" fill="url(#icon-gradient)"/>
+                <circle cx="11" cy="11.5" r="0.7" fill="url(#icon-gradient)"/>
+              </svg>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">Cloud Computing & Escalabilidade</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Sua infraestrutura de IA na nuvem, com escalabilidade e segurança de nível empresarial. Garantimos que suas soluções de IA sejam robustas, flexíveis e sempre disponíveis, independentemente do volume de dados.</p>
           </div>
 
           <!-- Card 3: Big Data & Insights Acionáveis -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="mb-8">
-              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">database</span>
+          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+            <div class="mb-8 flex items-center justify-center py-2">
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
+                <ellipse cx="12" cy="6" rx="7" ry="3" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+                <path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+                <path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+                <path d="M9 9.5v3" stroke="url(#icon-gradient)" stroke-width="0.8" stroke-linecap="round"/>
+                <path d="M12 10v3" stroke="url(#icon-gradient)" stroke-width="0.8" stroke-linecap="round"/>
+                <path d="M15 9.5v3" stroke="url(#icon-gradient)" stroke-width="0.8" stroke-linecap="round"/>
+              </svg>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">Big Data & Insights Acionáveis</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Transformamos o dilúvio de dados em um oceano de oportunidades. Com Big Data, coletamos, processamos e analisamos volumes massivos de informação para extrair padrões e gerar insights acionáveis que guiam sua estratégia.</p>
           </div>
 
           <!-- Card 4: Machine Learning & Automação Inteligente -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="mb-8">
-              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">model_training</span>
+          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+            <div class="mb-8 flex items-center justify-center py-2">
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
+                <circle cx="12" cy="12" r="5" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+                <circle cx="12" cy="12" r="2" stroke="url(#icon-gradient)" stroke-width="1"/>
+                <path d="M12 3v3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M12 18v3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M3 12h3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M18 12h3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M5.64 5.64l2.12 2.12" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <path d="M16.24 16.24l2.12 2.12" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <path d="M5.64 18.36l2.12-2.12" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                <path d="M16.24 7.76l2.12-2.12" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+              </svg>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">Machine Learning & Automação Inteligente</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Desenvolvemos algoritmos de Machine Learning que aprendem, adaptam e automatizam. Da otimização de cadeias de suprimentos à personalização da experiência do cliente, a automação inteligente está ao seu alcance.</p>
@@ -169,27 +195,17 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Vantagem Competitiva Section -->
-    <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
+    <section id="metodo" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <!-- Heading -->
         <div class="text-center mb-16 lg:mb-20">
-          <h3 class="font-headline text-4xl lg:text-[56px] xl:text-[60px] font-medium text-white leading-tight">
+          <h3 class="font-headline text-3xl lg:text-[42px] xl:text-[46px] font-medium text-white leading-tight whitespace-nowrap">
             Sua Vantagem Competitiva com o <span class="text-primary font-bold">Serendipe</span>
           </h3>
-          <p class="mt-6 text-on-surface-variant text-base lg:text-lg max-w-3xl mx-auto leading-relaxed">
+          <p class="mt-10 lg:mt-12 text-on-surface-variant text-base lg:text-lg max-w-3xl mx-auto leading-relaxed">
             A Lei de Informática não é apenas um incentivo fiscal; é a porta de entrada para a inovação disruptiva. O Serendipe é seu parceiro estratégico para navegar por ela, garantindo que cada centavo investido em P&D com IA retorne em valor e competitividade.
           </p>
         </div>
-
-        <!-- Gradient defs for icons -->
-        <svg class="absolute w-0 h-0" aria-hidden="true">
-          <defs>
-            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#a8c8f0" />
-              <stop offset="100%" stop-color="#4a7bb5" />
-            </linearGradient>
-          </defs>
-        </svg>
 
         <!-- Feature Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
@@ -253,11 +269,81 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <!-- Etapas / Roadmap Section -->
+    <section id="processo" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
+      <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
+        <div class="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
+          <h3 class="font-headline text-3xl lg:text-[42px] xl:text-[46px] font-medium text-white leading-tight">
+            Da obrigação fiscal ao <span class="text-primary font-bold">ativo estratégico</span> em 4 etapas.
+          </h3>
+        </div>
+
+        <div class="etapas-container relative max-w-3xl mx-auto">
+          <!-- Track line (background) -->
+          <div class="etapas-track absolute left-6 lg:left-8 top-0 bottom-0 w-[2px] bg-outline-variant/30"></div>
+          <!-- Progress line (fills on scroll) -->
+          <div class="etapas-progress absolute left-6 lg:left-8 top-0 w-[2px] bg-primary" style="height: 0%;"></div>
+
+          <!-- Step 1 -->
+          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-20 lg:pb-28" data-step="1">
+            <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
+              <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">1</span>
+            </div>
+            <div class="pt-2 lg:pt-3">
+              <h4 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Diagnóstico de elegibilidade</h4>
+              <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
+                Mapeamos os recursos disponíveis pela Lei de Informática e identificamos as maiores oportunidades de impacto para o seu negócio.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-20 lg:pb-28" data-step="2">
+            <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
+              <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">2</span>
+            </div>
+            <div class="pt-2 lg:pt-3">
+              <h4 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Design de projeto em IA</h4>
+              <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
+                Nossos especialistas co-criam um projeto de P&D com foco em Inteligência Artificial que atende às exigências do MCTI e entrega valor real à empresa.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-20 lg:pb-28" data-step="3">
+            <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
+              <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">3</span>
+            </div>
+            <div class="pt-2 lg:pt-3">
+              <h4 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Execução com metodologia ágil</h4>
+              <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
+                Scrum e Lean garantem entregas incrementais, transparência total e resultados mensuráveis desde a primeira sprint — sem surpresas no final.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="etapa-item relative flex gap-8 lg:gap-12" data-step="4">
+            <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
+              <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">4</span>
+            </div>
+            <div class="pt-2 lg:pt-3">
+              <h4 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Relatório e continuidade</h4>
+              <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
+                Documentamos tudo para conformidade com o MCTI e construímos a base para o próximo ciclo de inovação — porque um projeto de IA bem feito gera o próximo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Cases Section -->
-    <section id="cases" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
+    <section id="cases" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <div class="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
-          <h3 class="font-headline text-4xl lg:text-[56px] xl:text-[60px] font-medium text-white leading-tight">
+          <h3 class="font-headline text-3xl lg:text-[42px] xl:text-[46px] font-medium text-white leading-tight">
             O que acontece quando inovação é <span class="text-primary font-bold">levada a sério</span>
           </h3>
           <p class="text-on-surface-variant text-base lg:text-lg mt-6 leading-relaxed font-light">
@@ -365,7 +451,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <div class="cta-box rounded-2xl p-10 lg:p-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
           <div class="max-w-xl">
-            <h3 class="font-headline text-2xl lg:text-3xl xl:text-[34px] font-semibold text-on-primary leading-tight mb-5">
+            <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-semibold text-on-primary leading-tight mb-5">
               Sua empresa já tem o recurso. Falta o parceiro certo.
             </h3>
             <p class="font-body text-sm lg:text-base text-on-primary/80 leading-relaxed">
@@ -402,10 +488,10 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Bottom Navigation (Mobile only) -->
   <div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-card rounded-full px-8 py-3 flex items-center gap-10 kinetic-glow border border-primary/10">
-    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">home</span>
-    <span class="material-symbols-outlined text-on-surface-variant">biotech</span>
-    <span class="material-symbols-outlined text-on-surface-variant">lightbulb</span>
-    <span class="material-symbols-outlined text-on-surface-variant">mail</span>
+    <a href="#sobre"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">home</span></a>
+    <a href="#solucoes"><span class="material-symbols-outlined text-on-surface-variant">biotech</span></a>
+    <a href="#metodo"><span class="material-symbols-outlined text-on-surface-variant">lightbulb</span></a>
+    <a href="#cases"><span class="material-symbols-outlined text-on-surface-variant">mail</span></a>
   </div>
 </Layout>
 
@@ -418,6 +504,23 @@ import Layout from '../layouts/Layout.astro';
 
   .kinetic-glow {
     box-shadow: 0 0 20px rgba(127, 155, 194, 0.15);
+  }
+
+  .hero-cta {
+    border: 1px solid rgba(70, 100, 140, 0.35);
+    box-shadow:
+      0 0 15px rgba(80, 150, 230, 0.25),
+      0 0 40px rgba(70, 130, 210, 0.15),
+      0 0 80px rgba(60, 120, 200, 0.08);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .hero-cta:hover {
+    border-color: rgba(100, 170, 240, 0.55);
+    box-shadow:
+      0 0 20px rgba(80, 150, 230, 0.35),
+      0 0 50px rgba(70, 130, 210, 0.2),
+      0 0 100px rgba(60, 120, 200, 0.12);
   }
 
   .stat-box {
@@ -455,6 +558,15 @@ import Layout from '../layouts/Layout.astro';
       0 0 15px rgba(80, 150, 230, 0.25),
       0 0 40px rgba(70, 130, 210, 0.15),
       0 0 80px rgba(60, 120, 200, 0.08);
+  }
+
+  .solution-icon {
+    filter: drop-shadow(0 0 6px rgba(127, 155, 194, 0.3));
+    transition: filter 0.35s ease;
+  }
+
+  .solution-card:hover .solution-icon {
+    filter: drop-shadow(0 0 10px rgba(127, 155, 194, 0.5));
   }
 
   .scale-card {
@@ -527,6 +639,23 @@ import Layout from '../layouts/Layout.astro';
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
   }
 
+  /* Etapas progress line */
+  .etapas-progress {
+    transition: height 0.05s linear;
+    border-radius: 1px;
+    box-shadow: 0 0 8px rgba(127, 155, 194, 0.4);
+  }
+
+  .etapa-marker.is-active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    box-shadow: 0 0 16px rgba(127, 155, 194, 0.45);
+  }
+
+  .etapa-marker.is-active span {
+    color: var(--color-on-primary);
+  }
+
   @media (min-width: 1024px) {
     .cases-bento {
       grid-template-columns: repeat(4, 1fr);
@@ -534,3 +663,42 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 </style>
+
+<script>
+  function initEtapasProgress() {
+    const container = document.querySelector('.etapas-container');
+    const progressLine = document.querySelector('.etapas-progress');
+    const markers = document.querySelectorAll('.etapa-marker');
+    const track = document.querySelector('.etapas-track');
+    if (!container || !progressLine || !track) return;
+
+    function update() {
+      const containerRect = container.getBoundingClientRect();
+      const trackRect = track.getBoundingClientRect();
+      const trackHeight = trackRect.height;
+
+      const viewportTrigger = window.innerHeight * 0.55;
+      const scrolled = viewportTrigger - containerRect.top;
+      const ratio = Math.max(0, Math.min(1, scrolled / trackHeight));
+
+      progressLine.style.height = (ratio * 100) + '%';
+
+      markers.forEach((marker) => {
+        const markerRect = marker.getBoundingClientRect();
+        const markerCenter = markerRect.top + markerRect.height / 2;
+        if (markerCenter < viewportTrigger) {
+          marker.classList.add('is-active');
+        } else {
+          marker.classList.remove('is-active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
+  document.addEventListener('DOMContentLoaded', initEtapasProgress);
+  document.addEventListener('astro:page-load', initEtapasProgress);
+</script>

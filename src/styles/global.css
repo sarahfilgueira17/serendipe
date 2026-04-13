@@ -12,13 +12,13 @@
   --color-surface-container-high: #192125;
   --color-surface-container-highest: #1e272b;
   --color-surface-variant: #1e272b;
-  --color-surface-tint: #71b1ff;
+  --color-surface-tint: #7f9bc2;
 
-  --color-primary: #71b1ff;
-  --color-primary-dim: #52a1f8;
-  --color-primary-container: #56a4fb;
-  --color-primary-fixed: #59a6fe;
-  --color-primary-fixed-dim: #4999ef;
+  --color-primary: #7f9bc2;
+  --color-primary-dim: #698bba;
+  --color-primary-container: #6d8dba;
+  --color-primary-fixed: #6f90be;
+  --color-primary-fixed-dim: #5d80b1;
 
   --color-secondary: #cae6fe;
   --color-secondary-dim: #bcd8ef;
@@ -56,9 +56,9 @@
   --color-inverse-primary: #0061aa;
 
   /* === Typography === */
-  --font-headline: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --font-label: "Manrope", system-ui, sans-serif;
+  --font-headline: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-label: "Inter", system-ui, sans-serif;
 }
 
 @layer base {
@@ -77,11 +77,11 @@
 }
 
 @utility glow-blue {
-  box-shadow: 0 0 20px rgba(113, 177, 255, 0.15);
+  box-shadow: 0 0 20px rgba(127, 155, 194, 0.15);
 }
 
 @utility glow-blue-hover {
-  box-shadow: 0 0 30px rgba(113, 177, 255, 0.25);
+  box-shadow: 0 0 30px rgba(127, 155, 194, 0.25);
 }
 
 @utility ambient-shadow {

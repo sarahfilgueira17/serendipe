@@ -73,22 +73,66 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <!-- About / Value Proposition Section -->
+    <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
+      <div class="max-w-7xl mx-auto flex flex-col gap-16">
+        <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+          <!-- Text -->
+          <div class="lg:w-[42%] lg:flex-shrink-0">
+            <h3 class="font-headline text-3xl lg:text-4xl font-medium text-white mb-6 py-4">Sobre o <span class="text-primary font-bold">instituto</span></h3>
+            <p class="font-body text-sm md:text-base lg:text-lg font-normal text-on-surface-variant leading-relaxed lg:leading-[1.6]">
+              O Serendipe é o único Instituto de Ciência e Tecnologia do Brasil com foco exclusivo em Inteligência Artificial. Enquanto outros ICTs entregam conformidade, nós entregamos <span class="text-primary font-semibold">vantagem competitiva</span>, projetos de IA que transformam o investimento obrigatório da Lei de Informática em crescimento real para o seu negócio.
+            </p>
+          </div>
+
+          <!-- Stat Boxes -->
+          <div class="grid grid-cols-2 gap-4 lg:gap-5 w-full lg:flex-1">
+            <div class="stat-box rounded-xl p-6 lg:p-8 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
+              <span class="stat-number font-headline text-4xl lg:text-5xl font-black text-primary">+60</span>
+              <span class="text-on-surface-variant text-sm lg:text-base mt-2">clientes ativos</span>
+            </div>
+            <div class="stat-box rounded-xl p-6 lg:p-8 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
+              <span class="stat-number font-headline text-4xl lg:text-5xl font-black text-primary">+30</span>
+              <span class="text-on-surface-variant text-sm lg:text-base mt-2">anos de experiência</span>
+            </div>
+            <div class="stat-box rounded-xl p-6 lg:p-8 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
+              <span class="stat-number font-headline text-4xl lg:text-5xl font-black text-primary">+800</span>
+              <span class="text-on-surface-variant text-sm lg:text-base mt-2">pessoas ventureiras</span>
+            </div>
+            <div class="flex items-center justify-center p-6 lg:p-8 min-h-[140px] lg:min-h-[160px]">
+              <a href="#" class="font-headline text-xs uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 font-bold">
+                Conheça nossos cases <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center">
+          <a href="#ecosystem" class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-base">chevron_right</span>
+            Quero transformar meu investimento em IA
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Nossas Soluções de IA Section -->
     <section id="ecosystem" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <div class="flex flex-col items-center mb-16 lg:mb-20 text-center">
           <header>
-            <h3 class="font-headline text-4xl lg:text-[60px] font-medium text-white" style="line-height: 1.13;">Conheça nossas <span class="font-black text-primary">soluções</span></h3>
+            <h3 class="font-headline text-4xl lg:text-[60px] font-medium text-white" style="line-height: 1.13;">Conheça nossas <span class="font-black text-primary">soluções de IA</span></h3>
           </header>
+          <p class="mt-6 text-on-surface-variant text-base lg:text-lg max-w-3xl leading-relaxed">Com o Serendipe, sua empresa acessa o que há de mais avançado em Inteligência Artificial, desenhado para otimizar processos, prever tendências e maximizar seu retorno sobre o investimento em P&D.</p>
         </div>
 
         <!-- Bento Grid / Glass Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           <!-- Card 1: OpenAI & Modelos Preditivos -->
           <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="flex items-start justify-between mb-8">
-              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">psychology</span>
-              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">01</span>
+            <div class="mb-8">
+              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">psychology</span>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">OpenAI & Modelos Preditivos</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Vá além da análise de dados. Com OpenAI, criamos modelos preditivos que antecipam o mercado, otimizam operações e revelam insights ocultos, transformando dados brutos em decisões de alto impacto.</p>
@@ -96,9 +140,8 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- Card 2: Cloud Computing & Escalabilidade -->
           <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="flex items-start justify-between mb-8">
-              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">cloud</span>
-              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">02</span>
+            <div class="mb-8">
+              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">cloud</span>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">Cloud Computing & Escalabilidade</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Sua infraestrutura de IA na nuvem, com escalabilidade e segurança de nível empresarial. Garantimos que suas soluções de IA sejam robustas, flexíveis e sempre disponíveis, independentemente do volume de dados.</p>
@@ -106,9 +149,8 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- Card 3: Big Data & Insights Acionáveis -->
           <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="flex items-start justify-between mb-8">
-              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">database</span>
-              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">03</span>
+            <div class="mb-8">
+              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">database</span>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">Big Data & Insights Acionáveis</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Transformamos o dilúvio de dados em um oceano de oportunidades. Com Big Data, coletamos, processamos e analisamos volumes massivos de informação para extrair padrões e gerar insights acionáveis que guiam sua estratégia.</p>
@@ -116,9 +158,8 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- Card 4: Machine Learning & Automação Inteligente -->
           <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col h-full">
-            <div class="flex items-start justify-between mb-8">
-              <span class="material-symbols-outlined text-primary text-4xl lg:text-5xl">model_training</span>
-              <span class="text-on-surface-variant/30 font-headline text-4xl font-black">04</span>
+            <div class="mb-8">
+              <span class="material-symbols-outlined text-primary text-6xl lg:text-7xl">model_training</span>
             </div>
             <h4 class="text-xl font-headline font-semibold mb-3">Machine Learning & Automação Inteligente</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-1">Desenvolvemos algoritmos de Machine Learning que aprendem, adaptam e automatizam. Da otimização de cadeias de suprimentos à personalização da experiência do cliente, a automação inteligente está ao seu alcance.</p>
@@ -127,26 +168,216 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section id="stats" class="py-20 lg:py-28 xl:py-32 px-6 lg:px-12 xl:px-20 border-t border-outline-variant/10">
-      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0 lg:justify-between max-w-5xl xl:max-w-6xl mx-auto">
-        <div class="grid grid-cols-2 lg:flex gap-12 lg:gap-20 xl:gap-28 w-full lg:w-auto max-w-lg lg:max-w-none text-center lg:text-left">
-          <div>
-            <div class="font-headline text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-1">24/7</div>
-            <div class="text-xs text-on-surface-variant uppercase tracking-widest">Active Intelligence</div>
+    <!-- Vantagem Competitiva Section -->
+    <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
+      <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
+        <!-- Heading -->
+        <div class="text-center mb-16 lg:mb-20">
+          <h3 class="font-headline text-4xl lg:text-[56px] xl:text-[60px] font-medium text-white leading-tight">
+            Sua Vantagem Competitiva com o <span class="text-primary font-bold">Serendipe</span>
+          </h3>
+          <p class="mt-6 text-on-surface-variant text-base lg:text-lg max-w-3xl mx-auto leading-relaxed">
+            A Lei de Informática não é apenas um incentivo fiscal; é a porta de entrada para a inovação disruptiva. O Serendipe é seu parceiro estratégico para navegar por ela, garantindo que cada centavo investido em P&D com IA retorne em valor e competitividade.
+          </p>
+        </div>
+
+        <!-- Gradient defs for icons -->
+        <svg class="absolute w-0 h-0" aria-hidden="true">
+          <defs>
+            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#a8c8f0" />
+              <stop offset="100%" stop-color="#4a7bb5" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Feature Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+          <!-- Card: Maximize os Créditos Fiscais -->
+          <div class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
+            <div class="scale-card-inner rounded-xl p-6 lg:p-8 flex flex-col items-center gap-6 w-full h-full relative z-10">
+              <div class="w-full flex items-center justify-center py-6 lg:py-8">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-icon">
+                  <circle cx="12" cy="13" r="7" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+                  <path d="M12 9v8" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M14.5 10.5c-.4-.6-1.2-1-2.5-1s-2.5.7-2.5 1.8c0 1.2 1.2 1.6 2.5 1.9 1.3.3 2.5.8 2.5 2-.0 1.1-1 1.8-2.5 1.8s-2.1-.4-2.5-1" stroke="url(#icon-gradient)" stroke-width="1.1" stroke-linecap="round"/>
+                  <path d="M12 6V3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M9 4.5l3-1.5 3 1.5" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="text-center px-4">
+                <h4 class="font-headline text-base lg:text-lg font-semibold text-on-surface mb-2">Maximize os Créditos Fiscais</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Projetos de IA de alto impacto, 100% alinhados com os requisitos da Lei, convertendo obrigações em recursos para inovação.</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <div class="font-headline text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-1">99.9%</div>
-            <div class="text-xs text-on-surface-variant uppercase tracking-widest">Global Uptime</div>
+
+          <!-- Card: Acelere o Desenvolvimento -->
+          <div class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
+            <div class="scale-card-inner rounded-xl p-6 lg:p-8 flex flex-col items-center gap-6 w-full h-full relative z-10">
+              <div class="w-full flex items-center justify-center py-6 lg:py-8">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-icon">
+                  <path d="M12 20V10" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M12 10l-3 3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 10l3 3" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.5 14.5c-2.5.5-4 1.5-4 3 0 0 .5 2.5 7.5 2.5s7.5-2.5 7.5-2.5c0-1.5-1.5-2.5-4-3" stroke="url(#icon-gradient)" stroke-width="1" stroke-linecap="round"/>
+                  <circle cx="12" cy="6" r="3" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+                  <path d="M10.5 5.5l1.5-1 1.5 1" stroke="url(#icon-gradient)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="10" y1="6.5" x2="14" y2="6.5" stroke="url(#icon-gradient)" stroke-width="0.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="text-center px-4">
+                <h4 class="font-headline text-base lg:text-lg font-semibold text-on-surface mb-2">Acelere o Desenvolvimento</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Metodologias ágeis e foco em resultados para entregar suas soluções de IA no prazo e dentro do orçamento.</p>
+              </div>
+            </div>
           </div>
-          <div class="hidden lg:block">
-            <div class="font-headline text-4xl lg:text-5xl xl:text-6xl font-bold text-primary mb-1">140+</div>
-            <div class="text-xs text-on-surface-variant uppercase tracking-widest">Edge Nodes</div>
+
+          <!-- Card: Reduza Riscos -->
+          <div class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
+            <div class="scale-card-inner rounded-xl p-6 lg:p-8 flex flex-col items-center gap-6 w-full h-full relative z-10">
+              <div class="w-full flex items-center justify-center py-6 lg:py-8">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-icon">
+                  <path d="M12 3L4 7v5c0 5.25 3.4 10.2 8 11.5 4.6-1.3 8-6.25 8-11.5V7l-8-4z" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linejoin="round"/>
+                  <path d="M9 12.5l2 2 4-4" stroke="url(#icon-gradient)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="text-center px-4">
+                <h4 class="font-headline text-base lg:text-lg font-semibold text-on-surface mb-2">Reduza Riscos</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Expertise regulatória e técnica para garantir conformidade e sucesso em cada etapa do seu projeto.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="bg-surface-container-highest p-1 rounded-full px-6 flex items-center gap-3">
-          <span class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></span>
-          <span class="text-[10px] font-headline uppercase tracking-tighter text-on-surface-variant">Kinetic Framework Status: Optimal</span>
+
+      </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
+      <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
+        <div class="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
+          <h3 class="font-headline text-4xl lg:text-[56px] xl:text-[60px] font-medium text-white leading-tight">
+            O que acontece quando inovação é <span class="text-primary font-bold">levada a sério</span>
+          </h3>
+          <p class="text-on-surface-variant text-base lg:text-lg mt-6 leading-relaxed font-light">
+            Em pouco mais de um ano e meio, o Serendipe já transformou milhões de reais em investimentos de P&D em cases de sucesso tangíveis para empresas que ousaram inovar. Não somos apenas um instituto; somos um <span class="text-primary font-semibold">catalisador de resultados</span>.
+          </p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="cases-bento">
+          <!-- 1. Featured card (2col x 2row) - dark with gradient overlay -->
+          <div class="cases-card-featured relative overflow-hidden rounded-xl group cursor-pointer">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#2a1f14] via-[#1e1a15] to-surface-container"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between p-6 lg:p-8">
+              <span class="font-headline text-sm font-bold tracking-wider italic text-white/90 uppercase">Netshoes</span>
+              <div>
+                <p class="text-white text-sm lg:text-base font-medium mb-3 max-w-sm leading-snug">
+                  Netshoes bloqueia automaticamente mais de 4 milhões de ameaças em seis meses
+                </p>
+                <a href="#" class="case-link">
+                  <span class="material-symbols-outlined text-sm">chevron_right</span> Saiba mais
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Dafiti - dark card -->
+          <div class="rounded-xl bg-surface-container-highest flex items-center justify-center p-6 cursor-pointer hover:bg-surface-bright transition-colors">
+            <span class="font-headline text-2xl lg:text-3xl font-light text-white tracking-tight">dafiti</span>
+          </div>
+
+          <!-- 3. Agibank - light card -->
+          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
+            <span class="font-headline text-xl lg:text-2xl font-bold text-surface tracking-tight flex items-center gap-2">
+              <span class="text-primary">◇</span> agibank
+            </span>
+          </div>
+
+          <!-- 4. Renner - light card -->
+          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
+            <span class="font-headline text-xl lg:text-2xl font-semibold text-surface tracking-tight flex items-center gap-2">
+              <span class="text-on-surface-variant">⊙</span> Renner
+            </span>
+          </div>
+
+          <!-- 5. Magalu - tertiary accent card (1col x 2row) -->
+          <div class="cases-card-accent relative rounded-xl flex flex-col justify-between p-6 lg:p-8 cursor-pointer overflow-hidden transition-opacity hover:opacity-95">
+            <span class="font-headline text-lg font-black text-[#1a1025] tracking-wider uppercase relative z-10">Magalu</span>
+            <div class="relative z-10">
+              <p class="text-[#1a1025]/80 text-sm leading-relaxed mb-4">
+                Veja como o Magalu garante alta disponibilidade para centenas de aplicações de escala global
+              </p>
+              <a href="#" class="text-xs uppercase tracking-widest text-[#1a1025]/50 hover:text-[#1a1025] transition-colors inline-flex items-center gap-1 font-bold">
+                <span class="material-symbols-outlined text-sm">chevron_right</span> Saiba mais
+              </a>
+            </div>
+          </div>
+
+          <!-- 6. Fourbank - primary accent card -->
+          <div class="rounded-xl bg-primary flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
+            <span class="font-headline text-base lg:text-lg font-black text-on-primary uppercase tracking-[0.25em]">Fourbank</span>
+          </div>
+
+          <!-- 7. GPA - dark card with text (1col x 2row) -->
+          <div class="cases-card-tall relative overflow-hidden rounded-xl group cursor-pointer">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#1a1f14] via-[#151a12] to-surface-container-highest"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-6 lg:p-8">
+              <p class="text-white text-sm font-medium mb-3 leading-snug">
+                Grupo Pão de Açúcar (GPA) soluciona ciberataque e reduz custos em 30%
+              </p>
+              <a href="#" class="case-link">
+                <span class="material-symbols-outlined text-sm">chevron_right</span> Saiba mais
+              </a>
+            </div>
+          </div>
+
+          <!-- 8. MadeiraMadeira - primary accent card -->
+          <div class="rounded-xl bg-primary flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
+            <span class="font-headline text-sm lg:text-base font-bold text-on-primary tracking-tight flex items-center gap-1.5">
+              <span>◇</span> madeiramadeira
+            </span>
+          </div>
+
+          <!-- 9. Exame - light card -->
+          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
+            <span class="font-headline text-2xl lg:text-3xl font-black text-surface tracking-tight">exame.</span>
+          </div>
+
+          <!-- 10. iFood - dark card -->
+          <div class="rounded-xl bg-surface-container-highest flex items-center justify-center p-6 cursor-pointer hover:bg-surface-bright transition-colors">
+            <span class="font-headline text-2xl lg:text-3xl font-bold text-white italic">iFood</span>
+          </div>
+
+          <!-- 11. Infoblox - light card -->
+          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
+            <span class="font-headline text-xl lg:text-2xl font-bold text-surface tracking-tight">infoblox.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
+      <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
+        <div class="cta-box rounded-2xl p-10 lg:p-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+          <div class="max-w-xl">
+            <h3 class="font-headline text-2xl lg:text-3xl xl:text-[34px] font-semibold text-on-primary leading-tight mb-5">
+              Sua empresa já tem o recurso. Falta o parceiro certo.
+            </h3>
+            <p class="font-body text-sm lg:text-base text-on-primary/80 leading-relaxed">
+              Fale com um especialista do Serendipe e descubra como transformar sua obrigação em inovação real em menos de 30 dias.
+            </p>
+          </div>
+          <div class="lg:flex-shrink-0">
+            <a href="#" class="inline-flex items-center gap-2 bg-surface text-on-surface px-8 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:bg-surface-bright transition-colors duration-300 whitespace-nowrap">
+              <span class="material-symbols-outlined text-base">chevron_right</span>
+              Agende Sua Análise Estratégica
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -189,14 +420,117 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 0 20px rgba(127, 155, 194, 0.15);
   }
 
+  .stat-box {
+    background: rgba(10, 16, 22, 0.9);
+    border: 1px solid rgba(70, 100, 140, 0.35);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .stat-box:hover {
+    border-color: rgba(100, 170, 240, 0.55);
+    box-shadow:
+      0 0 15px rgba(80, 150, 230, 0.25),
+      0 0 40px rgba(70, 130, 210, 0.15),
+      0 0 80px rgba(60, 120, 200, 0.08);
+  }
+
+  .stat-number {
+    display: inline-block;
+    transition: transform 0.35s ease;
+  }
+
+  .stat-box:hover .stat-number {
+    transform: scale(1.1);
+  }
+
   .solution-card {
-    background: rgba(20, 28, 32, 0.6);
-    border: 1px solid rgba(67, 73, 76, 0.5);
-    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    background: rgba(10, 16, 22, 0.9);
+    border: 1px solid rgba(70, 100, 140, 0.35);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
   .solution-card:hover {
-    border-color: rgba(127, 155, 194, 0.4);
-    box-shadow: 0 0 25px rgba(127, 155, 194, 0.25), 0 0 50px rgba(127, 155, 194, 0.1);
+    border-color: rgba(100, 170, 240, 0.55);
+    box-shadow:
+      0 0 15px rgba(80, 150, 230, 0.25),
+      0 0 40px rgba(70, 130, 210, 0.15),
+      0 0 80px rgba(60, 120, 200, 0.08);
+  }
+
+  .scale-card {
+    position: relative;
+    border: 1px solid rgba(70, 100, 140, 0.35);
+    background: rgba(10, 16, 22, 0.9);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .scale-card-inner {
+    background: transparent;
+  }
+
+  .scale-card:hover {
+    border-color: rgba(100, 170, 240, 0.55);
+    box-shadow:
+      0 0 15px rgba(80, 150, 230, 0.25),
+      0 0 40px rgba(70, 130, 210, 0.15),
+      0 0 80px rgba(60, 120, 200, 0.08);
+  }
+
+  .scale-icon {
+    filter: drop-shadow(0 0 6px rgba(127, 155, 194, 0.3));
+    transition: filter 0.35s ease;
+  }
+
+  .scale-card:hover .scale-icon {
+    filter: drop-shadow(0 0 10px rgba(127, 155, 194, 0.5));
+  }
+
+  /* Cases Bento Grid */
+  .cases-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 140px;
+    gap: 4px;
+  }
+
+  .cases-card-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .cases-card-accent {
+    grid-row: span 2;
+    background: linear-gradient(135deg, #d2c4f7, #c4b5fd);
+  }
+
+  .cases-card-tall {
+    grid-row: span 2;
+  }
+
+  .case-link {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-on-surface-variant);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .case-link:hover {
+    color: white;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+  }
+
+  @media (min-width: 1024px) {
+    .cases-bento {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 160px;
+    }
   }
 </style>

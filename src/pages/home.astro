@@ -16,23 +16,52 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
       <!-- Desktop Nav Links -->
       <div class="hidden lg:flex items-center gap-10">
-        <a href="#sobre" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Sobre</a>
-        <a href="#solucoes" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Soluções</a>
-        <a href="#metodo" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Método</a>
-        <a href="#processo" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Processo</a>
-        <a href="#cases" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors">Cases</a>
+        <a href="#sobre" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">Sobre</a>
+        <a href="#solucoes" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">Soluções</a>
+        <a href="#metodo" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">Método</a>
+        <a href="#processo" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">Processo</a>
+        <a href="#cases" class="font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">Cases</a>
       </div>
 
       <div class="flex items-center gap-4">
-        <button class="lg:hidden text-primary hover:opacity-80 transition-opacity cursor-pointer active:duration-100" aria-label="Menu">
+        <button id="menu-toggle" class="lg:hidden text-primary hover:opacity-80 transition-opacity cursor-pointer active:duration-100" aria-label="Menu" aria-expanded="false">
           <span class="material-symbols-outlined scale-95">menu</span>
         </button>
-        <button class="hidden lg:inline-flex gradient-primary text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300">
+        <button type="button" class="open-form-modal hidden lg:inline-flex gradient-primary text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300 cursor-pointer">
           Agendar Análise
         </button>
       </div>
     </nav>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+
+  <!-- Mobile Menu Drawer -->
+  <nav id="mobile-menu" class="fixed top-0 left-0 h-full w-72 z-[70] bg-surface-container-lowest/95 backdrop-blur-xl border-r border-outline-variant/20 translate-x-[-100%] transition-transform duration-300 ease-out lg:hidden flex flex-col">
+    <div class="flex items-center justify-between px-6 h-16">
+      <a href="/" id="mobile-menu-logo">
+        <img src={logoSerendipe.src} alt="Serendipe" class="h-9 w-auto" />
+      </a>
+      <button id="menu-close" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" aria-label="Fechar menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="flex flex-col px-6 pt-6 gap-1 flex-1">
+      <a href="#sobre" class="mobile-nav-link font-body text-sm uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary py-3 px-3 rounded-lg hover:bg-primary/5 transition-all">Sobre</a>
+      <a href="#solucoes" class="mobile-nav-link font-body text-sm uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary py-3 px-3 rounded-lg hover:bg-primary/5 transition-all">Soluções</a>
+      <a href="#metodo" class="mobile-nav-link font-body text-sm uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary py-3 px-3 rounded-lg hover:bg-primary/5 transition-all">Método</a>
+      <a href="#processo" class="mobile-nav-link font-body text-sm uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary py-3 px-3 rounded-lg hover:bg-primary/5 transition-all">Processo</a>
+      <a href="#cases" class="mobile-nav-link font-body text-sm uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary py-3 px-3 rounded-lg hover:bg-primary/5 transition-all">Cases</a>
+    </div>
+
+    <div class="px-6 pb-8">
+      <button type="button" class="open-form-modal mobile-nav-link gradient-primary text-on-primary-container w-full py-3 rounded-full font-headline font-bold text-xs uppercase tracking-widest text-center block cursor-pointer">
+        Agendar Análise
+      </button>
+    </div>
+  </nav>
 
   <!-- Gradient defs for SVG icons (shared across sections) -->
   <svg class="absolute w-0 h-0" aria-hidden="true">
@@ -46,7 +75,7 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
   <main class="w-full overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-12 xl:px-20 overflow-hidden">
+    <section class="relative min-h-[auto] lg:min-h-screen flex items-center justify-center px-6 lg:px-12 xl:px-20 pt-52 pb-28 lg:pt-0 lg:pb-0 overflow-hidden">
       <!-- Background Video -->
       <div class="absolute inset-0 -z-20 overflow-hidden">
         <video autoplay muted loop playsinline class="w-full h-full object-cover">
@@ -60,23 +89,23 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
         <h2 class="font-headline text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-10 text-white whitespace-nowrap" style="line-height: 1.13;">
           Desbloqueie o Futuro da <span class="text-primary">Inovação</span>
         </h2>
-        <p class="text-on-surface-variant text-base lg:text-lg mb-10 leading-relaxed font-light max-w-2xl">
+        <p class="text-on-surface-variant text-base lg:text-lg mb-16 leading-relaxed font-light max-w-2xl">
           O Serendipe transforma a Lei de Informática em seu maior ativo de P&D, impulsionando sua empresa para a era da Inteligência Artificial com resultados preditivos e concretos. Não apenas cumprimos a Lei de Informática; nós a redefinimos, posicionando sua empresa na vanguarda da inovação.
         </p>
-        <button class="hero-cta gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
+        <a href="#solucoes" class="hero-cta gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
           <span class="material-symbols-outlined text-base">chevron_right</span>
           Explore nossos produtos e serviços
-        </button>
+        </a>
       </div>
     </section>
 
     <!-- About / Value Proposition Section -->
-    <section id="sobre" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-[#070f17]">
+    <section id="sobre" class="pt-20 pb-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-[#070f17]">
       <div class="max-w-7xl mx-auto flex flex-col gap-16">
         <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
           <!-- Text -->
           <div class="lg:w-[42%] lg:flex-shrink-0">
-            <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white mb-6 py-4">Sobre o <span class="text-primary font-bold">instituto</span></h3>
+            <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white mb-6 py-4">Sobre o <span class="text-primary font-bold">Instituto</span></h3>
             <p class="font-body text-sm md:text-base lg:text-lg font-normal text-on-surface-variant leading-relaxed lg:leading-[1.6]">
               No Serendipe, a inovação é um compromisso inabalável. Nosso propósito é impulsionar o progresso científico e tecnológico do Brasil, gerando <span class="text-primary font-semibold">valor sustentável</span> e transformando desafios em oportunidades reais para o mercado e a sociedade, através da Inteligência Artificial. Nossa abordagem é ágil, orientada a resultados e construída sobre parcerias estratégicas. Não entregamos apenas projetos; entregamos o <span class="text-primary font-semibold">futuro da sua empresa</span>, com ética, excelência e um impacto positivo duradouro.
             </p>
@@ -97,7 +126,7 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
               <span class="text-on-surface-variant text-sm lg:text-base mt-2">pessoas ventureiras</span>
             </div>
             <div class="flex items-center justify-center p-6 lg:p-8 min-h-[140px] lg:min-h-[160px]">
-              <a href="#" class="font-headline text-xs uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 font-bold">
+              <a href="#cases" class="font-headline text-xs uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 font-bold">
                 Conheça nossos cases <span class="material-symbols-outlined text-base">arrow_forward</span>
               </a>
             </div>
@@ -106,7 +135,7 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
         <!-- CTA Button -->
         <div class="text-center">
-          <a href="#solucoes" class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
+          <a href="#solucoes" class="gradient-primary text-on-primary-container px-6 sm:px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 inline-flex items-center justify-center gap-2 text-center max-w-full">
             <span class="material-symbols-outlined text-base">chevron_right</span>
             Quero transformar meu investimento em IA
           </a>
@@ -204,7 +233,7 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <!-- Heading -->
         <div class="text-center mb-16 lg:mb-20">
-          <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight whitespace-nowrap">
+          <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight">
             Sua Vantagem Competitiva com o <span class="text-primary font-bold">Serendipe</span>
           </h3>
           <p class="mt-10 lg:mt-12 text-on-surface-variant text-base lg:text-lg max-w-3xl mx-auto leading-relaxed">
@@ -279,7 +308,7 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <div class="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
           <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight">
-            Da obrigação fiscal ao <span class="text-primary font-bold">ativo estratégico</span> em 4 etapas
+            Da obrigação fiscal ao <span class="text-primary font-bold">ativo estratégico</span> em <span class="text-primary font-bold">4 etapas</span>
           </h3>
         </div>
 
@@ -290,12 +319,12 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
           <div class="etapas-progress absolute left-6 lg:left-8 top-0 w-[2px] bg-primary" style="height: 0%;"></div>
 
           <!-- Step 1 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-20 lg:pb-28" data-step="1">
+          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="1">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">1</span>
             </div>
             <div class="pt-2 lg:pt-3">
-              <h4 class="font-headline text-xl lg:text-2xl font-medium text-white mb-3">Diagnóstico de elegibilidade</h4>
+              <h4 class="font-headline text-lg lg:text-xl font-medium text-white mb-3">Diagnóstico de elegibilidade</h4>
               <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
                 Mapeamos os recursos disponíveis pela Lei de Informática e identificamos as maiores oportunidades de impacto para o seu negócio.
               </p>
@@ -303,12 +332,12 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
           </div>
 
           <!-- Step 2 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-20 lg:pb-28" data-step="2">
+          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="2">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">2</span>
             </div>
             <div class="pt-2 lg:pt-3">
-              <h4 class="font-headline text-xl lg:text-2xl font-medium text-white mb-3">Design de projeto em IA</h4>
+              <h4 class="font-headline text-lg lg:text-xl font-medium text-white mb-3">Design de projeto em IA</h4>
               <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
                 Nossos especialistas co-criam um projeto de P&D com foco em Inteligência Artificial que atende às exigências do MCTI e entrega valor real à empresa.
               </p>
@@ -316,12 +345,12 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
           </div>
 
           <!-- Step 3 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-20 lg:pb-28" data-step="3">
+          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="3">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">3</span>
             </div>
             <div class="pt-2 lg:pt-3">
-              <h4 class="font-headline text-xl lg:text-2xl font-medium text-white mb-3">Execução com metodologia ágil</h4>
+              <h4 class="font-headline text-lg lg:text-xl font-medium text-white mb-3">Execução com metodologia ágil</h4>
               <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
                 Scrum e Lean garantem entregas incrementais, transparência total e resultados mensuráveis desde a primeira sprint — sem surpresas no final.
               </p>
@@ -334,7 +363,7 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">4</span>
             </div>
             <div class="pt-2 lg:pt-3">
-              <h4 class="font-headline text-xl lg:text-2xl font-medium text-white mb-3">Relatório e continuidade</h4>
+              <h4 class="font-headline text-lg lg:text-xl font-medium text-white mb-3">Relatório e continuidade</h4>
               <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-lg">
                 Documentamos tudo para conformidade com o MCTI e construímos a base para o próximo ciclo de inovação — porque um projeto de IA bem feito gera o próximo.
               </p>
@@ -346,8 +375,8 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
     <!-- Origin Story Section -->
     <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
-      <div class="max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
+      <div class="max-w-5xl lg:max-w-7xl xl:max-w-[1440px] mx-auto">
+        <div class="flex flex-col lg:flex-row gap-16 lg:gap-32 items-center">
           <!-- Text -->
           <div class="lg:w-[42%] lg:flex-shrink-0">
             <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight mb-10">
@@ -412,114 +441,91 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
     <!-- Cases Section -->
     <section id="cases" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <div class="text-center mb-16 lg:mb-20 max-w-3xl mx-auto">
-          <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight">
-            O que acontece quando inovação é <span class="text-primary font-bold">levada a sério</span>
+        <div class="mb-16 lg:mb-20 text-center">
+          <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight mb-5">
+            O que acontece quando <span class="text-primary font-bold">inovação</span> é <br class="hidden sm:block"/>levada a sério
           </h3>
-          <p class="text-on-surface-variant text-base lg:text-lg mt-6 leading-relaxed font-light">
-            Em pouco mais de um ano e meio, o Serendipe já transformou milhões de reais em investimentos de P&D em cases de sucesso tangíveis para empresas que ousaram inovar. Não somos apenas um instituto; somos um <span class="text-primary font-semibold">catalisador de resultados</span>.
+          <p class="font-body text-sm lg:text-base text-on-surface-variant leading-relaxed">
+            Resultados reais. Empresas reais. Sem promessa vazia.
           </p>
         </div>
 
-        <!-- Bento Grid -->
-        <div class="cases-bento">
-          <!-- 1. Featured card (2col x 2row) - dark with gradient overlay -->
-          <div class="cases-card-featured relative overflow-hidden rounded-xl group cursor-pointer">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#2a1f14] via-[#1e1a15] to-surface-container"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div class="relative z-10 h-full flex flex-col justify-between p-6 lg:p-8">
-              <span class="font-headline text-sm font-bold tracking-wider italic text-white/90 uppercase">Netshoes</span>
-              <div>
-                <p class="text-white text-sm lg:text-base font-medium mb-3 max-w-sm leading-snug">
-                  Netshoes bloqueia automaticamente mais de 4 milhões de ameaças em seis meses
-                </p>
-                <a href="#" class="case-link">
-                  <span class="material-symbols-outlined text-sm">chevron_right</span> Saiba mais
-                </a>
+        <!-- Impact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <!-- Card 1: Processos Financeiros -->
+          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+            <div class="flex items-start justify-between mb-8 relative">
+              <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
+                <span class="material-symbols-outlined text-primary text-2xl leading-none">schedule</span>
               </div>
+              <span class="impact-badge impact-badge--success font-label text-[11px] font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full">Processos Financeiros</span>
             </div>
-          </div>
-
-          <!-- 2. Dafiti - dark card -->
-          <div class="rounded-xl bg-surface-container-highest flex items-center justify-center p-6 cursor-pointer hover:bg-surface-bright transition-colors">
-            <span class="font-headline text-2xl lg:text-3xl font-light text-white tracking-tight">dafiti</span>
-          </div>
-
-          <!-- 3. Agibank - light card -->
-          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
-            <span class="font-headline text-xl lg:text-2xl font-bold text-surface tracking-tight flex items-center gap-2">
-              <span class="text-primary">◇</span> agibank
-            </span>
-          </div>
-
-          <!-- 4. Renner - light card -->
-          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
-            <span class="font-headline text-xl lg:text-2xl font-semibold text-surface tracking-tight flex items-center gap-2">
-              <span class="text-on-surface-variant">⊙</span> Renner
-            </span>
-          </div>
-
-          <!-- 5. Magalu - tertiary accent card (1col x 2row) -->
-          <div class="cases-card-accent relative rounded-xl flex flex-col justify-between p-6 lg:p-8 cursor-pointer overflow-hidden transition-opacity hover:opacity-95">
-            <span class="font-headline text-lg font-black text-[#1a1025] tracking-wider uppercase relative z-10">Magalu</span>
-            <div class="relative z-10">
-              <p class="text-[#1a1025]/80 text-sm leading-relaxed mb-4">
-                Veja como o Magalu garante alta disponibilidade para centenas de aplicações de escala global
-              </p>
-              <a href="#" class="text-xs uppercase tracking-widest text-[#1a1025]/50 hover:text-[#1a1025] transition-colors inline-flex items-center gap-1 font-bold">
-                <span class="material-symbols-outlined text-sm">chevron_right</span> Saiba mais
-              </a>
+            <div class="flex items-baseline gap-3 mb-1 relative">
+              <span class="font-headline text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-on-surface-variant/50 leading-none">15</span>
+              <span class="font-headline text-2xl lg:text-3xl font-light text-on-surface-variant/50 leading-none">→</span>
+              <span class="font-headline text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-primary leading-none">3</span>
+              <span class="font-headline text-lg lg:text-xl font-medium text-on-surface-variant/60 ml-1">dias</span>
             </div>
+            <p class="text-white font-headline text-sm lg:text-base font-semibold mt-5 mb-4 relative">Decisões que antes esperavam semanas</p>
+            <p class="text-on-surface-variant text-sm leading-relaxed relative">Informações comerciais e financeiras que paralisavam decisões estratégicas. Com IA, virou rotina de 3 dias.</p>
           </div>
 
-          <!-- 6. Fourbank - primary accent card -->
-          <div class="rounded-xl bg-primary flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
-            <span class="font-headline text-base lg:text-lg font-black text-on-primary uppercase tracking-[0.25em]">Fourbank</span>
-          </div>
-
-          <!-- 7. GPA - dark card with text (1col x 2row) -->
-          <div class="cases-card-tall relative overflow-hidden rounded-xl group cursor-pointer">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#1a1f14] via-[#151a12] to-surface-container-highest"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-6 lg:p-8">
-              <p class="text-white text-sm font-medium mb-3 leading-snug">
-                Grupo Pão de Açúcar (GPA) soluciona ciberataque e reduz custos em 30%
-              </p>
-              <a href="#" class="case-link">
-                <span class="material-symbols-outlined text-sm">chevron_right</span> Saiba mais
-              </a>
+          <!-- Card 2: Geração de Leads -->
+          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+            <div class="flex items-start justify-between mb-8 relative">
+              <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
+                <span class="material-symbols-outlined text-primary text-2xl leading-none">group</span>
+              </div>
+              <span class="impact-badge impact-badge--success font-label text-[11px] font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full">Geração de Leads</span>
             </div>
+            <div class="flex items-baseline gap-3 mb-1 relative">
+              <span class="font-headline text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-on-surface-variant/50 leading-none">24h</span>
+              <span class="font-headline text-2xl lg:text-3xl font-light text-on-surface-variant/50 leading-none">→</span>
+              <span class="font-headline text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-primary leading-none">1h</span>
+            </div>
+            <p class="text-white font-headline text-sm lg:text-base font-semibold mt-5 mb-4 relative">Cada lead respondido ainda quente</p>
+            <p class="text-on-surface-variant text-sm leading-relaxed relative">Leads que esfriavam antes de serem trabalhados. Hoje, cada oportunidade é qualificada em menos de 60 minutos.</p>
           </div>
 
-          <!-- 8. MadeiraMadeira - primary accent card -->
-          <div class="rounded-xl bg-primary flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
-            <span class="font-headline text-sm lg:text-base font-bold text-on-primary tracking-tight flex items-center gap-1.5">
-              <span>◇</span> madeiramadeira
-            </span>
+          <!-- Card 3: Redução de Custo -->
+          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+            <div class="flex items-start justify-between mb-8 relative">
+              <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
+                <span class="material-symbols-outlined text-primary text-2xl leading-none">desktop_windows</span>
+              </div>
+              <span class="impact-badge impact-badge--success font-label text-[11px] font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full">Redução de Custo</span>
+            </div>
+            <div class="flex items-baseline gap-3 mb-1 relative">
+              <span class="font-headline text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-primary leading-none">R$ 200k</span>
+              <span class="font-headline text-lg lg:text-xl font-medium text-on-surface-variant/60 ml-1">/ano</span>
+            </div>
+            <p class="text-white font-headline text-sm lg:text-base font-semibold mt-5 mb-4 relative">R$ 200k que pararam de sair todo ano</p>
+            <p class="text-on-surface-variant text-sm leading-relaxed relative">Licenças de software substituídas por soluções de IA sob medida — sem dependência de fornecedor, sem renovação anual.</p>
           </div>
 
-          <!-- 9. Exame - light card -->
-          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
-            <span class="font-headline text-2xl lg:text-3xl font-black text-surface tracking-tight">exame.</span>
-          </div>
-
-          <!-- 10. iFood - dark card -->
-          <div class="rounded-xl bg-surface-container-highest flex items-center justify-center p-6 cursor-pointer hover:bg-surface-bright transition-colors">
-            <span class="font-headline text-2xl lg:text-3xl font-bold text-white italic">iFood</span>
-          </div>
-
-          <!-- 11. Infoblox - light card -->
-          <div class="rounded-xl bg-inverse-surface flex items-center justify-center p-6 cursor-pointer hover:opacity-90 transition-opacity">
-            <span class="font-headline text-xl lg:text-2xl font-bold text-surface tracking-tight">infoblox.</span>
+          <!-- Card 4: Risco Mitigado -->
+          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+            <div class="flex items-start justify-between mb-8 relative">
+              <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
+                <span class="material-symbols-outlined text-primary text-2xl leading-none">shield</span>
+              </div>
+              <span class="impact-badge impact-badge--success font-label text-[11px] font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full">Risco Mitigado</span>
+            </div>
+            <div class="flex items-baseline gap-3 mb-1 relative">
+              <span class="font-headline text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-primary leading-none">R$ 2M</span>
+              <span class="font-headline text-lg lg:text-xl font-medium text-on-surface-variant/60 ml-1">protegidos</span>
+            </div>
+            <p class="text-white font-headline text-sm lg:text-base font-semibold mt-5 mb-4 relative">R$ 2M que a IA protegeu antes do problema</p>
+            <p class="text-on-surface-variant text-sm leading-relaxed relative">Risco financeiro mapeado, monitorado e mitigado por modelos preditivos antes que se tornasse problema real.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Final CTA Section -->
-    <section class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
+    <section id="cta" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <a href="#" class="cta-flip-container rounded-2xl block">
+        <div class="cta-flip-container rounded-2xl block">
           <div class="cta-flip-inner">
             <!-- Front: CTA -->
             <div class="cta-flip-front cta-box rounded-2xl p-10 lg:p-16">
@@ -528,14 +534,14 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
                   Sua empresa já tem o recurso.<br>Falta o parceiro certo.
                 </h3>
                 <p class="font-body text-sm lg:text-base text-on-primary/80 leading-relaxed">
-                  Fale com um especialista do Serendipe e descubra como transformar sua obrigação em inovação real em menos de 30 dias.
+                  Chegou a hora de transformar a obrigatoriedade da Lei de Informática em sua maior vantagem competitiva com o Serendipe. Não perca mais tempo com soluções genéricas. Fale com nossos especialistas e descubra como sua empresa pode liderar a próxima onda de inovação.
                 </p>
               </div>
               <div>
-                <span class="inline-flex items-center gap-2 bg-surface text-on-surface px-8 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:bg-surface-bright transition-colors duration-300 whitespace-nowrap">
+                <button type="button" class="open-form-modal inline-flex items-center gap-2 bg-surface text-on-surface px-8 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:bg-surface-bright transition-colors duration-300 whitespace-nowrap cursor-pointer">
                   <span class="material-symbols-outlined text-base">chevron_right</span>
                   Agende Sua Análise Estratégica
-                </span>
+                </button>
               </div>
             </div>
 
@@ -566,9 +572,15 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
                   </ul>
                 </div>
               </div>
+              <div class="mt-14 text-center">
+                <button type="button" class="open-form-modal inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 whitespace-nowrap cursor-pointer">
+                  <span class="material-symbols-outlined text-base">chevron_right</span>
+                  Agende Sua Análise Estratégica
+                </button>
+              </div>
             </div>
           </div>
-        </a>
+        </div>
       </div>
     </section>
   </main>
@@ -613,6 +625,138 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
     <a href="#metodo"><span class="material-symbols-outlined text-on-surface-variant">lightbulb</span></a>
     <a href="#cases"><span class="material-symbols-outlined text-on-surface-variant">mail</span></a>
   </div>
+
+  <!-- Form Modal -->
+  <div id="form-modal-overlay" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="form-modal-backdrop"></div>
+    <div id="form-modal-content" class="form-modal-content relative z-10 w-[95%] max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-8 lg:p-10 mx-4 translate-y-6 transition-transform duration-300">
+      <div class="flex items-center justify-between mb-8">
+        <h3 class="font-headline text-xl lg:text-2xl font-semibold text-white">Agende Sua Análise Estratégica</h3>
+        <button id="form-modal-close" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-1" aria-label="Fechar">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <form id="contact-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="form-field">
+            <label for="form-nome" class="form-label">Nome<span class="text-primary">*</span></label>
+            <input type="text" id="form-nome" name="nome" required placeholder="Nome" class="form-input" />
+          </div>
+          <div class="form-field">
+            <label for="form-email" class="form-label">Email corporativo<span class="text-primary">*</span></label>
+            <input type="email" id="form-email" name="email" required placeholder="Email corporativo" class="form-input" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="form-field">
+            <label for="form-celular" class="form-label">Celular</label>
+            <input type="tel" id="form-celular" name="celular" placeholder="+55 (xx) 12345-6789" class="form-input" />
+          </div>
+          <div class="form-field">
+            <label for="form-cargo" class="form-label">Cargo<span class="text-primary">*</span></label>
+            <select id="form-cargo" name="cargo" required class="form-select">
+              <option value="" disabled selected>Selecione um</option>
+              <option value="ceo">CEO / Diretor(a)</option>
+              <option value="cto">CTO / CIO</option>
+              <option value="gerente">Gerente</option>
+              <option value="coordenador">Coordenador(a)</option>
+              <option value="analista">Analista</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="form-field">
+            <label for="form-empresa" class="form-label">Empresa<span class="text-primary">*</span></label>
+            <input type="text" id="form-empresa" name="empresa" required placeholder="Empresa" class="form-input" />
+          </div>
+          <div class="form-field">
+            <label for="form-tamanho" class="form-label">Tamanho da empresa<span class="text-primary">*</span></label>
+            <select id="form-tamanho" name="tamanho" required class="form-select">
+              <option value="" disabled selected>Selecione um</option>
+              <option value="1-50">1–50 funcionários</option>
+              <option value="51-200">51–200 funcionários</option>
+              <option value="201-500">201–500 funcionários</option>
+              <option value="501-1000">501–1.000 funcionários</option>
+              <option value="1001+">Mais de 1.000</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="form-field">
+            <label for="form-mercado" class="form-label">Mercado<span class="text-primary">*</span></label>
+            <select id="form-mercado" name="mercado" required class="form-select">
+              <option value="" disabled selected>Selecione um</option>
+              <option value="tecnologia">Tecnologia</option>
+              <option value="industria">Indústria</option>
+              <option value="financeiro">Financeiro</option>
+              <option value="saude">Saúde</option>
+              <option value="varejo">Varejo</option>
+              <option value="educacao">Educação</option>
+              <option value="agro">Agronegócio</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="form-motivo" class="form-label">Motivo do contato<span class="text-primary">*</span></label>
+            <select id="form-motivo" name="motivo" required class="form-select">
+              <option value="" disabled selected>Selecione um</option>
+              <option value="lei-informatica">Lei de Informática</option>
+              <option value="projeto-ia">Projeto de IA</option>
+              <option value="consultoria">Consultoria estratégica</option>
+              <option value="parceria">Parceria</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="form-field">
+            <label for="form-servico" class="form-label">Serviço de interesse<span class="text-primary">*</span></label>
+            <select id="form-servico" name="servico" required class="form-select">
+              <option value="" disabled selected>Selecione um</option>
+              <option value="openai-modelos">OpenAI & Modelos Preditivos</option>
+              <option value="cloud">Cloud Computing & Escalabilidade</option>
+              <option value="bigdata">Big Data & Insights Acionáveis</option>
+              <option value="ml-automacao">Machine Learning & Automação</option>
+              <option value="todos">Todos os serviços</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Como prefere ser contatado?<span class="text-primary">*</span></label>
+            <div class="flex items-center gap-6 mt-2 h-[46px]">
+              <label class="flex items-center gap-2 cursor-pointer group">
+                <input type="radio" name="contato_preferencia" value="whatsapp" required class="form-radio" />
+                <span class="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">WhatsApp</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer group">
+                <input type="radio" name="contato_preferencia" value="email" class="form-radio" />
+                <span class="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Email</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="form-mensagem" class="form-label">Mensagem<span class="text-primary">*</span></label>
+          <textarea id="form-mensagem" name="mensagem" required rows="4" placeholder="Descreva melhor o que você busca" class="form-textarea"></textarea>
+        </div>
+
+        <div class="flex flex-col items-center gap-5 pt-2">
+          <button type="submit" class="gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 cursor-pointer">
+            Enviar resposta
+          </button>
+          <p class="text-on-surface-variant/60 text-xs text-center leading-relaxed max-w-md">
+            O Serendipe precisa que nos forneça as suas informações de contato para falarmos melhor sobre nossos produtos e serviços. Ao informar seus dados, você estará ciente das diretrizes da nossa <a href="#" class="text-primary hover:underline">Política de Privacidade</a>.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
 </Layout>
 
 <style is:global>
@@ -627,25 +771,29 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
   }
 
   .hero-cta {
-    border: 1px solid rgba(70, 100, 140, 0.35);
-    box-shadow:
-      0 0 15px rgba(80, 150, 230, 0.25),
-      0 0 40px rgba(70, 130, 210, 0.15),
-      0 0 80px rgba(60, 120, 200, 0.08);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
-  }
-
-  .hero-cta:hover {
-    border-color: rgba(100, 170, 240, 0.55);
+    border: 1px solid rgba(70, 100, 140, 0.45);
     box-shadow:
       0 0 25px rgba(80, 150, 230, 0.5),
       0 0 60px rgba(70, 130, 210, 0.35),
       0 0 120px rgba(60, 120, 200, 0.2);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .hero-cta:hover {
+    border-color: rgba(100, 170, 240, 0.7);
+    box-shadow:
+      0 0 30px rgba(80, 150, 230, 0.7),
+      0 0 80px rgba(70, 130, 210, 0.5),
+      0 0 160px rgba(60, 120, 200, 0.3),
+      0 0 250px rgba(60, 120, 200, 0.15);
   }
 
   .stat-box {
     background: rgba(10, 16, 22, 0.9);
     border: 1px solid rgba(70, 100, 140, 0.35);
+    box-shadow:
+      0 0 10px rgba(80, 150, 230, 0.12),
+      0 0 25px rgba(70, 130, 210, 0.07);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
@@ -669,6 +817,9 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
   .solution-card {
     background: rgba(10, 16, 22, 0.9);
     border: 1px solid rgba(70, 100, 140, 0.35);
+    box-shadow:
+      0 0 10px rgba(80, 150, 230, 0.12),
+      0 0 25px rgba(70, 130, 210, 0.07);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
@@ -693,6 +844,9 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
     position: relative;
     border: 1px solid rgba(70, 100, 140, 0.35);
     background: rgba(10, 16, 22, 0.9);
+    box-shadow:
+      0 0 10px rgba(80, 150, 230, 0.12),
+      0 0 25px rgba(70, 130, 210, 0.07);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
@@ -735,42 +889,59 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
     background: linear-gradient(to top, rgba(6, 10, 16, 0.97) 60%, rgba(6, 10, 16, 0.85) 100%);
   }
 
-  /* Cases Bento Grid */
-  .cases-bento {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
-    gap: 4px;
+  /* Impact Cards */
+  .impact-card {
+    background: rgba(10, 16, 22, 0.9);
+    border: 1px solid rgba(70, 100, 140, 0.35);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.35s ease;
+    position: relative;
   }
 
-  .cases-card-featured {
-    grid-column: span 2;
-    grid-row: span 2;
+  .impact-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #7f9bc2, transparent);
+    border-radius: 1px;
   }
 
-  .cases-card-accent {
-    grid-row: span 2;
-    background: linear-gradient(135deg, #d2c4f7, #c4b5fd);
+  .impact-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(100, 170, 240, 0.55);
+    box-shadow:
+      0 0 15px rgba(80, 150, 230, 0.25),
+      0 4px 24px rgba(0, 0, 0, 0.35);
   }
 
-  .cases-card-tall {
-    grid-row: span 2;
+  .impact-card:hover::after {
+    background: linear-gradient(90deg, transparent, #7f9bc2 30%, #7f9bc2 70%, transparent);
+    box-shadow: 0 0 8px rgba(127, 155, 194, 0.4);
   }
 
-  .case-link {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-on-surface-variant);
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    transition: color 0.3s ease;
+  /* Icon boxes */
+  .impact-icon-box {
+    background: rgba(127, 155, 194, 0.1);
+    border: 1px solid rgba(127, 155, 194, 0.15);
   }
 
-  .case-link:hover {
-    color: white;
+  .impact-icon-box--success {
+    background: rgba(127, 155, 194, 0.1);
+    border-color: rgba(127, 155, 194, 0.15);
+  }
+
+  /* Badges */
+  .impact-badge {
+    border: 1px solid transparent;
+  }
+
+  .impact-badge--success {
+    color: var(--color-success);
+    background: rgba(52, 211, 153, 0.08);
+    border-color: rgba(52, 211, 153, 0.25);
   }
 
   .cta-box {
@@ -787,15 +958,8 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
   .cta-flip-inner {
     position: relative;
-    min-height: 480px;
     transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
     transform-style: preserve-3d;
-  }
-
-  @media (max-width: 767px) {
-    .cta-flip-inner {
-      min-height: 620px;
-    }
   }
 
   .cta-flip-container:hover .cta-flip-inner {
@@ -804,13 +968,13 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
   .cta-flip-front,
   .cta-flip-back {
-    position: absolute;
-    inset: 0;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
 
   .cta-flip-front {
+    position: absolute;
+    inset: 0;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -828,11 +992,13 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
   }
 
   .cta-flip-back {
+    position: relative;
     transform: rotateX(180deg);
     z-index: 1;
     background: rgba(10, 16, 22, 0.95);
     border: 1px solid rgba(70, 100, 140, 0.35);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -874,12 +1040,141 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
     color: var(--color-primary);
   }
 
-  @media (min-width: 1024px) {
-    .cases-bento {
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 160px;
-    }
+  /* Form Modal */
+  .form-modal-content {
+    background: rgba(10, 16, 22, 0.97);
+    border: 1px solid rgba(70, 100, 140, 0.35);
+    box-shadow:
+      0 0 30px rgba(80, 150, 230, 0.2),
+      0 0 80px rgba(70, 130, 210, 0.1),
+      0 25px 60px rgba(0, 0, 0, 0.6);
   }
+
+  .form-modal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  .form-modal-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .form-modal-content::-webkit-scrollbar-thumb {
+    background: rgba(127, 155, 194, 0.2);
+    border-radius: 3px;
+  }
+  .form-modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(127, 155, 194, 0.35);
+  }
+
+  #form-modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #form-modal-overlay.is-open .form-modal-content {
+    transform: translateY(0);
+  }
+
+  .form-label {
+    display: block;
+    font-family: var(--font-headline);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-on-surface);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+    color: var(--color-on-surface);
+    background: rgba(14, 20, 24, 0.8);
+    border: 1px solid rgba(70, 100, 140, 0.3);
+    border-radius: 0.6rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: var(--color-on-surface-variant);
+    opacity: 0.5;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(127, 155, 194, 0.15);
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a6acb0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  .form-select option {
+    background: #0e1418;
+    color: var(--color-on-surface);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-radio {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(70, 100, 140, 0.4);
+    border-radius: 50%;
+    background: rgba(14, 20, 24, 0.8);
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-radio:checked {
+    border-color: var(--color-primary);
+  }
+
+  .form-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .form-radio:focus {
+    box-shadow: 0 0 0 3px rgba(127, 155, 194, 0.15);
+  }
+
+  /* Success state */
+  .form-success {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .form-success .material-symbols-outlined {
+    font-size: 4rem;
+    color: var(--color-success);
+    margin-bottom: 1.5rem;
+  }
+
 </style>
 
 <script>
@@ -922,4 +1217,100 @@ import alexandreGerardo from '../assets/Alexandre Gerardo (1).svg';
 
   document.addEventListener('DOMContentLoaded', initEtapasProgress);
   document.addEventListener('astro:page-load', initEtapasProgress);
+
+  function initMobileMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('menu-close');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const drawer = document.getElementById('mobile-menu');
+    const navLinks = drawer?.querySelectorAll('.mobile-nav-link');
+    if (!toggle || !closeBtn || !overlay || !drawer) return;
+
+    function open() {
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      drawer.classList.remove('translate-x-[-100%]');
+      drawer.classList.add('translate-x-0');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      overlay.classList.remove('opacity-100');
+      drawer.classList.add('translate-x-[-100%]');
+      drawer.classList.remove('translate-x-0');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', close);
+    navLinks?.forEach(link => link.addEventListener('click', close));
+  }
+
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+  document.addEventListener('astro:page-load', initMobileMenu);
+
+  function initFormModal() {
+    const overlay = document.getElementById('form-modal-overlay');
+    const backdrop = document.getElementById('form-modal-backdrop');
+    const closeBtn = document.getElementById('form-modal-close');
+    const openBtns = document.querySelectorAll('.open-form-modal');
+    const form = document.getElementById('contact-form');
+    if (!overlay) return;
+
+    function openModal() {
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    openBtns.forEach(btn => btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openModal();
+    }));
+
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const content = document.getElementById('form-modal-content');
+      if (!content) return;
+
+      content.innerHTML = `
+        <div class="form-success">
+          <span class="material-symbols-outlined">check_circle</span>
+          <h3 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Mensagem enviada!</h3>
+          <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-sm mx-auto mb-8">
+            Obrigado pelo interesse. Nossa equipe entrará em contato em breve.
+          </p>
+          <button type="button" id="form-success-close" class="gradient-primary text-on-primary-container px-8 py-3 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300 cursor-pointer">
+            Fechar
+          </button>
+        </div>
+      `;
+
+      document.getElementById('form-success-close')?.addEventListener('click', () => {
+        closeModal();
+        setTimeout(() => location.reload(), 300);
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initFormModal);
+  document.addEventListener('astro:page-load', initFormModal);
 </script>

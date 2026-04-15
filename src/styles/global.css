@@ -32,6 +32,10 @@
   --color-tertiary-fixed: #d797ff;
   --color-tertiary-fixed-dim: #cf83ff;
 
+  --color-success: #34d399;
+  --color-success-dim: #10b981;
+  --color-success-container: #065f46;
+
   --color-error: #ff716c;
   --color-error-dim: #d7383b;
   --color-error-container: #9f0519;

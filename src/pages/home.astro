@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import logoSerendipe from '../assets/LOGO SERENDIPE SITE.webp';
-import logoRodape from '../assets/LOGO SERENDIPE RODAPÉ.webp';
 import samyDana from '../assets/Samy Dana Co Founder.svg';
 ---
 
@@ -85,13 +84,13 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-surface via-surface/70 to-surface/40"></div>
 
       <div class="flex flex-col items-center justify-center text-center">
-        <h2 class="font-headline text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-10 text-white whitespace-nowrap" style="line-height: 1.13;">
+        <h2 data-reveal class="font-headline text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-10 text-white whitespace-nowrap" style="line-height: 1.13;">
           Desbloqueie o Futuro da <span class="text-primary">Inovação</span>
         </h2>
-        <p class="text-on-surface-variant text-base lg:text-lg mb-16 leading-relaxed font-light max-w-2xl">
-          O Serendipe transforma a Lei de Informática em seu maior ativo de P&D, impulsionando sua empresa para a era da <span class="text-primary font-semibold">Inteligência Artificial</span> com resultados preditivos e concretos. Não apenas cumprimos a Lei de Informática; nós a redefinimos, posicionando sua empresa na <span class="text-primary font-semibold">vanguarda da inovação</span>.
+        <p data-reveal data-reveal-delay="250" class="text-on-surface-variant text-base lg:text-lg mb-16 leading-relaxed font-light max-w-2xl">
+          O Serenipe converte a conformidade com a Lei de Informática em uma vantagem financeira estratégica. Otimizamos seus investimentos em P&D para financiar sua jornada de <span class="text-primary font-semibold">Inteligência Artificial</span>, transformando obrigações legais em ROI mensurável e resultados preditivos.
         </p>
-        <a href="#solucoes" class="hero-cta gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
+        <a data-reveal data-reveal-delay="500" href="#solucoes" class="hero-cta gradient-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest transition-all duration-300 transform active:scale-95 whitespace-nowrap inline-flex items-center gap-2">
           <span class="material-symbols-outlined text-base">chevron_right</span>
           Explore nossos produtos e serviços
         </a>
@@ -101,9 +100,9 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <!-- About / Value Proposition Section -->
     <section id="sobre" class="pt-20 pb-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-[#070f17]">
       <div class="max-w-7xl mx-auto flex flex-col gap-16">
-        <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <!-- Text -->
-          <div class="lg:w-[42%] lg:flex-shrink-0">
+          <div data-reveal="left" class="lg:w-[42%] lg:flex-shrink-0">
             <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white mb-6 py-4">Sobre o <span class="text-primary font-bold">Instituto</span></h3>
             <p class="font-body text-sm md:text-base lg:text-lg font-normal text-on-surface-variant leading-relaxed lg:leading-[1.6]">
               No Serendipe, a inovação é um compromisso inabalável. Nosso propósito é impulsionar o progresso científico e tecnológico do Brasil, gerando <span class="text-primary font-semibold">valor sustentável</span> e transformando desafios em oportunidades reais para o mercado e a sociedade, através da Inteligência Artificial. Nossa abordagem é ágil, orientada a resultados e construída sobre parcerias estratégicas. Não entregamos apenas projetos; entregamos o <span class="text-primary font-semibold">futuro da sua empresa</span>, com ética, excelência e um impacto positivo duradouro.
@@ -112,31 +111,21 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
 
           <!-- Stat Boxes -->
           <div class="grid grid-cols-2 gap-4 lg:gap-5 w-full lg:flex-1">
-            <div class="stat-box rounded-xl p-5 lg:p-7 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
-              <span class="material-symbols-outlined text-primary mb-3" style="font-size: 3.5rem; font-variation-settings: 'FILL' 0, 'wght' 300, 'opsz' 48;">payments</span>
-              <span class="stat-number font-headline text-5xl lg:text-4xl font-black text-primary mb-3">+18</span>
+            <div data-reveal="right" data-reveal-delay="200" class="stat-box rounded-xl p-8 lg:p-10 flex flex-col items-center justify-center text-center min-h-[220px] lg:min-h-[280px]">
+              <span class="material-symbols-outlined text-primary mb-5" style="font-size: 4.5rem; font-variation-settings: 'FILL' 0, 'wght' 300, 'opsz' 48;">payments</span>
+              <span class="stat-number font-headline text-5xl lg:text-5xl font-black text-primary mb-4" data-target="18" data-prefix="+" data-suffix="M">+0M</span>
               <span class="font-headline text-xs lg:text-sm font-medium text-on-surface-variant/50">Investimentos PD&amp;I</span>
             </div>
-            <div class="stat-box rounded-xl p-5 lg:p-7 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
-              <span class="material-symbols-outlined text-primary mb-3" style="font-size: 3.5rem; font-variation-settings: 'FILL' 0, 'wght' 300, 'opsz' 48;">handshake</span>
-              <span class="stat-number font-headline text-5xl lg:text-4xl font-black text-primary mb-3">+4</span>
-              <span class="font-headline text-xs lg:text-sm font-medium text-on-surface-variant/50">Clientes Atendidos</span>
-            </div>
-            <div class="stat-box rounded-xl p-5 lg:p-7 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
-              <span class="material-symbols-outlined text-primary mb-3" style="font-size: 3.5rem; font-variation-settings: 'FILL' 0, 'wght' 300, 'opsz' 48;">folder_open</span>
-              <span class="stat-number font-headline text-5xl lg:text-4xl font-black text-primary mb-3">+7</span>
-              <span class="font-headline text-xs lg:text-sm font-medium text-on-surface-variant/50">Projetos</span>
-            </div>
-            <div class="stat-box rounded-xl p-5 lg:p-7 flex flex-col items-center justify-center text-center min-h-[140px] lg:min-h-[160px]">
-              <span class="material-symbols-outlined text-primary mb-3" style="font-size: 3.5rem; font-variation-settings: 'FILL' 0, 'wght' 300, 'opsz' 48;">groups</span>
-              <span class="stat-number font-headline text-5xl lg:text-4xl font-black text-primary mb-3">+50</span>
+            <div data-reveal="right" data-reveal-delay="400" class="stat-box rounded-xl p-8 lg:p-10 flex flex-col items-center justify-center text-center min-h-[220px] lg:min-h-[280px]">
+              <span class="material-symbols-outlined text-primary mb-5" style="font-size: 4.5rem; font-variation-settings: 'FILL' 0, 'wght' 300, 'opsz' 48;">groups</span>
+              <span class="stat-number font-headline text-5xl lg:text-5xl font-black text-primary mb-4" data-target="50" data-prefix="+" data-suffix="">+0</span>
               <span class="font-headline text-xs lg:text-sm font-medium text-on-surface-variant/50 leading-tight">Colaboradores PhDs, MScs e Especialistas</span>
             </div>
           </div>
         </div>
 
         <!-- CTA Button -->
-        <div class="text-center">
+        <div data-reveal data-reveal-delay="300" class="text-center">
           <a href="#cta" class="gradient-primary text-on-primary-container px-6 sm:px-10 py-4 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 active:scale-95 inline-flex items-center justify-center gap-2 text-center max-w-full">
             <span class="material-symbols-outlined text-base">chevron_right</span>
             Quero transformar meu investimento em IA
@@ -148,7 +137,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <!-- Nossas Soluções de IA Section -->
     <section id="solucoes" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <div class="flex flex-col items-center mb-16 lg:mb-20 text-center">
+        <div data-reveal class="flex flex-col items-center mb-16 lg:mb-20 text-center">
           <header>
             <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight">Conheça nossas <span class="font-black text-primary">soluções de IA</span></h3>
           </header>
@@ -158,7 +147,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
         <!-- Bento Grid / Glass Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           <!-- Card 1: Modelos Preditivos -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+          <div data-reveal data-reveal-delay="100" class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
             <div class="mb-8 flex items-center justify-center py-2">
               <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linejoin="round"/>
@@ -176,7 +165,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card 2: Cloud Computing & Escalabilidade -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+          <div data-reveal data-reveal-delay="250" class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
             <div class="mb-8 flex items-center justify-center py-2">
               <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
                 <path d="M6.5 18A4.5 4.5 0 016.5 9h.3A7 7 0 0120 11.5a3.5 3.5 0 01-.5 7H6.5z" stroke="url(#icon-gradient)" stroke-width="1.2" stroke-linejoin="round"/>
@@ -192,7 +181,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card 3: Big Data & Insights Acionáveis -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+          <div data-reveal data-reveal-delay="400" class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
             <div class="mb-8 flex items-center justify-center py-2">
               <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
                 <ellipse cx="12" cy="6" rx="7" ry="3" stroke="url(#icon-gradient)" stroke-width="1.2"/>
@@ -208,7 +197,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card 4: Machine Learning & Automação Inteligente -->
-          <div class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
+          <div data-reveal data-reveal-delay="550" class="solution-card p-8 lg:p-10 rounded-xl flex flex-col items-center text-center h-full">
             <div class="mb-8 flex items-center justify-center py-2">
               <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-icon">
                 <circle cx="12" cy="12" r="5" stroke="url(#icon-gradient)" stroke-width="1.2"/>
@@ -234,7 +223,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <section id="metodo" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         <!-- Heading -->
-        <div class="text-center mb-16 lg:mb-20">
+        <div data-reveal class="text-center mb-16 lg:mb-20">
           <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight">
             Sua Vantagem Competitiva com o <span class="text-primary font-bold">Serendipe</span>
           </h3>
@@ -246,7 +235,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
         <!-- Feature Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
           <!-- Card: Maximize os Créditos Fiscais -->
-          <div class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
+          <div data-reveal data-reveal-delay="100" class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
             <div class="scale-card-inner rounded-xl p-6 lg:p-8 flex flex-col items-center gap-6 w-full h-full relative z-10">
               <div class="w-full flex items-center justify-center py-6 lg:py-8">
                 <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-icon">
@@ -265,7 +254,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card: Acelere o Desenvolvimento -->
-          <div class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
+          <div data-reveal data-reveal-delay="300" class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
             <div class="scale-card-inner rounded-xl p-6 lg:p-8 flex flex-col items-center gap-6 w-full h-full relative z-10">
               <div class="w-full flex items-center justify-center py-6 lg:py-8">
                 <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-icon">
@@ -286,7 +275,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card: Reduza Riscos -->
-          <div class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
+          <div data-reveal data-reveal-delay="500" class="scale-card group relative rounded-xl flex flex-col items-center gap-6">
             <div class="scale-card-inner rounded-xl p-6 lg:p-8 flex flex-col items-center gap-6 w-full h-full relative z-10">
               <div class="w-full flex items-center justify-center py-6 lg:py-8">
                 <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-icon">
@@ -308,7 +297,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <!-- Etapas / Roadmap Section -->
     <section id="processo" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-lowest">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <div class="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
+        <div data-reveal class="text-center mb-16 lg:mb-24 max-w-3xl mx-auto">
           <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight">
             Da obrigação fiscal ao <span class="text-primary font-bold">ativo estratégico</span> em <span class="text-primary font-bold">4 etapas</span>
           </h3>
@@ -321,7 +310,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           <div class="etapas-progress absolute left-6 lg:left-8 top-0 w-[2px] bg-primary" style="height: 0%;"></div>
 
           <!-- Step 1 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="1">
+          <div data-reveal data-reveal-delay="100" class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="1">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">1</span>
             </div>
@@ -334,7 +323,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Step 2 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="2">
+          <div data-reveal data-reveal-delay="250" class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="2">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">2</span>
             </div>
@@ -347,7 +336,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Step 3 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="3">
+          <div data-reveal data-reveal-delay="400" class="etapa-item relative flex gap-8 lg:gap-12 pb-14 lg:pb-20" data-step="3">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">3</span>
             </div>
@@ -360,7 +349,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Step 4 -->
-          <div class="etapa-item relative flex gap-8 lg:gap-12" data-step="4">
+          <div data-reveal data-reveal-delay="550" class="etapa-item relative flex gap-8 lg:gap-12" data-step="4">
             <div class="etapa-marker relative z-10 flex-shrink-0 w-12 lg:w-16 h-12 lg:h-16 rounded-full border-2 border-outline-variant/30 bg-surface-container-lowest flex items-center justify-center transition-all duration-500">
               <span class="font-headline text-lg lg:text-xl font-bold text-on-surface-variant transition-colors duration-500">4</span>
             </div>
@@ -379,7 +368,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <section class="relative bg-surface overflow-hidden">
       <div class="flex flex-col lg:flex-row items-stretch min-h-[600px] lg:min-h-[700px]">
         <!-- Founder Image - Left Side -->
-        <div class="relative lg:w-1/2 min-h-[400px] lg:min-h-auto">
+        <div data-reveal="left" class="relative lg:w-1/2 min-h-[400px] lg:min-h-auto">
           <img src={samyDana.src} alt="Samy Dana" class="absolute inset-0 w-full h-full object-cover object-top" />
           <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent lg:bg-none"></div>
           <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-surface"></div>
@@ -393,7 +382,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
         </div>
 
         <!-- Text - Right Side -->
-        <div class="relative lg:w-1/2 flex items-center px-6 lg:px-16 xl:px-24 py-20 lg:py-32 xl:py-40">
+        <div data-reveal="right" data-reveal-delay="250" class="relative lg:w-1/2 flex items-center px-6 lg:px-16 xl:px-24 py-20 lg:py-32 xl:py-40">
           <div>
             <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight mb-10">
               A descoberta inesperada do <span class="text-primary font-bold">extraordinário</span>
@@ -417,7 +406,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <!-- Cases Section -->
     <section id="cases" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface-container-low">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <div class="mb-16 lg:mb-20 text-center">
+        <div data-reveal class="mb-16 lg:mb-20 text-center">
           <h3 class="font-headline text-2xl lg:text-[34px] xl:text-[38px] font-medium text-white leading-tight mb-5">
             O que acontece quando <span class="text-primary font-bold">inovação</span> é <br class="hidden sm:block"/>levada a sério
           </h3>
@@ -429,7 +418,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
         <!-- Impact Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <!-- Card 1: Processos Financeiros -->
-          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div data-reveal data-reveal-delay="100" class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
             <div class="flex items-start justify-between mb-8 relative">
               <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
                 <span class="material-symbols-outlined text-primary text-2xl leading-none">schedule</span>
@@ -447,7 +436,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card 2: Geração de Leads -->
-          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div data-reveal data-reveal-delay="250" class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
             <div class="flex items-start justify-between mb-8 relative">
               <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
                 <span class="material-symbols-outlined text-primary text-2xl leading-none">group</span>
@@ -464,7 +453,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card 3: Redução de Custo -->
-          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div data-reveal data-reveal-delay="400" class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
             <div class="flex items-start justify-between mb-8 relative">
               <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
                 <span class="material-symbols-outlined text-primary text-2xl leading-none">desktop_windows</span>
@@ -480,7 +469,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
           </div>
 
           <!-- Card 4: Risco Mitigado -->
-          <div class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
+          <div data-reveal data-reveal-delay="550" class="impact-card impact-card--success relative rounded-2xl p-8 lg:p-10 overflow-hidden">
             <div class="flex items-start justify-between mb-8 relative">
               <div class="impact-icon-box impact-icon-box--success flex items-center justify-center w-12 h-12 rounded-xl">
                 <span class="material-symbols-outlined text-primary text-2xl leading-none">shield</span>
@@ -501,7 +490,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     <!-- Final CTA Section -->
     <section id="cta" class="py-24 lg:py-32 xl:py-40 px-6 lg:px-12 xl:px-20 bg-surface">
       <div class="max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
-        <div class="cta-flip-container rounded-2xl block">
+        <div data-reveal="scale" class="cta-flip-container rounded-2xl block">
           <div class="cta-flip-inner">
             <!-- Front: CTA -->
             <div class="cta-flip-front cta-box rounded-2xl p-10 lg:p-16">
@@ -563,13 +552,13 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
 
   <!-- Footer -->
   <footer class="bg-surface-container-lowest w-full pt-16 lg:pt-20 pb-8 px-6 lg:px-20">
-    <div class="max-w-7xl mx-auto">
+    <div data-reveal class="max-w-7xl mx-auto">
       <!-- Top row: Logo + Address (centered) + LinkedIn -->
       <div class="flex items-center justify-between pb-8 border-b border-outline-variant/20">
-        <img src={logoRodape.src} alt="Serendipe" class="h-10 lg:h-12 w-auto flex-shrink-0" />
+        <img src={logoSerendipe.src} alt="Serendipe" class="h-14 lg:h-18 w-auto flex-shrink-0" />
         <p class="font-body text-xs lg:text-sm text-on-surface-variant leading-relaxed text-center hidden lg:flex items-center gap-2">
           <span class="material-symbols-outlined text-base text-primary">location_on</span>
-          Rua Barão de Teffé, 160 (Conj. 505 – Sala 208) &ensp;|&ensp; CEP 13208-760 (Jundiaí, SP)
+          Rua Barão de Teffé, 160 (Sala 208) &ensp;|&ensp; CEP 13208-760 (Jundiaí, SP)
         </p>
         <a href="https://www.linkedin.com/company/serendipe-instituto-de-ci%C3%AAncia-e-tecnologia/" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 transition-colors flex-shrink-0" aria-label="LinkedIn">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -581,7 +570,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
       <div class="py-8 border-b border-outline-variant/20 lg:hidden">
         <p class="font-body text-sm text-on-surface-variant leading-relaxed text-center flex items-center justify-center gap-2">
           <span class="material-symbols-outlined text-base text-primary">location_on</span>
-          Rua Barão de Teffé, 160 (Conj. 505 – Sala 208) &ensp;|&ensp; CEP 13208-760 (Jundiaí, SP)
+          Rua Barão de Teffé, 160 (Sala 208) &ensp;|&ensp; CEP 13208-760 (Jundiaí, SP)
         </p>
       </div>
 
@@ -1295,4 +1284,106 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
 
   document.addEventListener('DOMContentLoaded', initFormModal);
   document.addEventListener('astro:page-load', initFormModal);
+
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    let animated = new Set();
+
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 2000;
+      const start = performance.now();
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.round(easeOutCubic(progress) * target);
+        el.textContent = prefix + value + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated.has(entry.target)) {
+          animated.add(entry.target);
+          animateCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  document.addEventListener('DOMContentLoaded', initCounters);
+  document.addEventListener('astro:page-load', initCounters);
+
+  function initReveal() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const items = document.querySelectorAll<HTMLElement>('[data-reveal]:not([data-revealed])');
+    if (!items.length) return;
+
+    const ease = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    const dur = '0.75s';
+
+    items.forEach((el) => {
+      const dir = el.getAttribute('data-reveal') || '';
+      el.style.opacity = '0';
+      el.style.willChange = 'opacity, transform';
+      if (dir === 'left') el.style.transform = 'translateX(-40px)';
+      else if (dir === 'right') el.style.transform = 'translateX(40px)';
+      else if (dir === 'scale') el.style.transform = 'scale(0.92)';
+      else el.style.transform = 'translateY(36px)';
+    });
+
+    function reveal(el: HTMLElement) {
+      el.style.transition = `opacity ${dur} ${ease}, transform ${dur} ${ease}`;
+      void el.offsetWidth;
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.setAttribute('data-revealed', '');
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target as HTMLElement;
+              const delay = parseInt(el.dataset.revealDelay || '0', 10);
+              if (delay > 0) {
+                setTimeout(() => reveal(el), delay);
+              } else {
+                reveal(el);
+              }
+              observer.unobserve(el);
+            });
+          },
+          { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
+        );
+
+        items.forEach((item) => observer.observe(item));
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+  document.addEventListener('astro:page-load', initReveal);
 </script>

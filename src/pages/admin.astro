@@ -1,0 +1,430 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Admin — Serendipe">
+  <div id="admin-app" class="min-h-screen bg-surface">
+    <!-- Login Screen -->
+    <div id="login-screen" class="flex items-center justify-center min-h-screen px-4">
+      <div class="w-full max-w-md">
+        <div class="bg-surface-container-high rounded-2xl p-8 border border-outline-variant/30 shadow-2xl">
+          <div class="text-center mb-8">
+            <span class="material-symbols-outlined text-primary text-5xl mb-4 block">admin_panel_settings</span>
+            <h1 class="font-headline text-2xl font-bold text-on-surface">Painel Admin</h1>
+            <p class="text-on-surface-variant text-sm mt-2">Acesse para gerenciar os leads</p>
+          </div>
+
+          <form id="login-form" class="space-y-5">
+            <div>
+              <label for="login-email" class="block text-sm font-medium text-on-surface-variant mb-1.5">Email</label>
+              <input type="email" id="login-email" required placeholder="admin@serendipe.com"
+                class="w-full px-4 py-3 bg-surface-container border border-outline-variant/40 rounded-lg text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-colors" />
+            </div>
+            <div>
+              <label for="login-password" class="block text-sm font-medium text-on-surface-variant mb-1.5">Senha</label>
+              <input type="password" id="login-password" required placeholder="••••••••"
+                class="w-full px-4 py-3 bg-surface-container border border-outline-variant/40 rounded-lg text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-colors" />
+            </div>
+            <p id="login-error" class="text-error text-sm hidden"></p>
+            <button type="submit" id="login-btn"
+              class="w-full gradient-primary text-on-primary-container py-3 rounded-lg font-headline font-bold text-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(127,155,194,0.4)] transition-all duration-300 cursor-pointer">
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="hidden">
+      <!-- Top Bar -->
+      <header class="bg-surface-container-high border-b border-outline-variant/30 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-3xl">admin_panel_settings</span>
+          <h1 class="font-headline text-xl font-bold text-on-surface">Painel de Leads</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <span id="user-email" class="text-on-surface-variant text-sm hidden md:inline"></span>
+          <button id="logout-btn"
+            class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-outline-variant/40 rounded-lg text-on-surface-variant hover:text-error hover:border-error/40 transition-colors text-sm cursor-pointer">
+            <span class="material-symbols-outlined text-lg">logout</span>
+            Sair
+          </button>
+        </div>
+      </header>
+
+      <!-- Stats Bar -->
+      <div class="px-6 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-surface-container-high rounded-xl p-5 border border-outline-variant/20">
+          <p class="text-on-surface-variant text-xs uppercase tracking-wider mb-1">Total de Leads</p>
+          <p id="stat-total" class="text-3xl font-headline font-bold text-on-surface">0</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-5 border border-outline-variant/20">
+          <p class="text-on-surface-variant text-xs uppercase tracking-wider mb-1">Não Lidos</p>
+          <p id="stat-unread" class="text-3xl font-headline font-bold text-primary">0</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-5 border border-outline-variant/20">
+          <p class="text-on-surface-variant text-xs uppercase tracking-wider mb-1">Últimos 7 dias</p>
+          <p id="stat-week" class="text-3xl font-headline font-bold text-tertiary">0</p>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="px-6 pb-4 flex flex-wrap items-center gap-3">
+        <div class="relative flex-1 min-w-[200px] max-w-sm">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg">search</span>
+          <input type="text" id="search-input" placeholder="Buscar por nome, email ou empresa..."
+            class="w-full pl-10 pr-4 py-2.5 bg-surface-container border border-outline-variant/40 rounded-lg text-on-surface text-sm placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-colors" />
+        </div>
+        <select id="filter-motivo"
+          class="px-4 py-2.5 bg-surface-container border border-outline-variant/40 rounded-lg text-on-surface-variant text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer">
+          <option value="">Todos os motivos</option>
+          <option value="lei-informatica">Lei de Informática</option>
+          <option value="projeto-ia">Projeto de IA</option>
+          <option value="consultoria">Consultoria estratégica</option>
+          <option value="parceria">Parceria</option>
+          <option value="outro">Outro</option>
+        </select>
+        <select id="filter-lido"
+          class="px-4 py-2.5 bg-surface-container border border-outline-variant/40 rounded-lg text-on-surface-variant text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer">
+          <option value="">Todos</option>
+          <option value="false">Não lidos</option>
+          <option value="true">Lidos</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div class="px-6 pb-8">
+        <div class="bg-surface-container-high rounded-xl border border-outline-variant/20 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-outline-variant/30 text-left">
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider">Status</th>
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider">Nome</th>
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider">Email</th>
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider hidden md:table-cell">Empresa</th>
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider hidden lg:table-cell">Motivo</th>
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider hidden lg:table-cell">Data</th>
+                  <th class="px-5 py-4 text-on-surface-variant font-medium text-xs uppercase tracking-wider">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body">
+                <tr>
+                  <td colspan="7" class="px-5 py-12 text-center text-on-surface-variant">
+                    <span class="material-symbols-outlined text-4xl mb-2 block opacity-40">hourglass_empty</span>
+                    Carregando leads...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead Detail Modal -->
+    <div id="lead-modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+      <div id="lead-modal" class="bg-surface-container-high rounded-2xl border border-outline-variant/30 w-full max-w-2xl max-h-[85vh] overflow-y-auto">
+        <div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/30 sticky top-0 bg-surface-container-high z-10">
+          <h2 class="font-headline text-lg font-bold text-on-surface">Detalhes do Lead</h2>
+          <button id="lead-modal-close" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-1">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div id="lead-modal-body" class="p-6 space-y-4"></div>
+        <div class="px-6 py-4 border-t border-outline-variant/30 flex items-center gap-3">
+          <button id="toggle-read-btn"
+            class="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm hover:bg-primary/20 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-lg">mark_email_read</span>
+            <span id="toggle-read-label">Marcar como lido</span>
+          </button>
+          <button id="delete-lead-btn"
+            class="flex items-center gap-2 px-4 py-2 bg-error/10 text-error rounded-lg text-sm hover:bg-error/20 transition-colors cursor-pointer ml-auto">
+            <span class="material-symbols-outlined text-lg">delete</span>
+            Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { auth, db } from '../lib/firebase';
+  import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+  import {
+    collection, query, orderBy, onSnapshot,
+    doc, updateDoc, deleteDoc, type Timestamp
+  } from 'firebase/firestore';
+
+  interface Lead {
+    id: string;
+    nome?: string;
+    email?: string;
+    celular?: string;
+    cargo?: string;
+    empresa?: string;
+    tamanho?: string;
+    mercado?: string;
+    motivo?: string;
+    servico?: string;
+    contato_preferencia?: string;
+    mensagem?: string;
+    lido?: boolean;
+    criadoEm?: Timestamp;
+  }
+
+  const loginScreen = document.getElementById('login-screen')!;
+  const dashboardScreen = document.getElementById('dashboard-screen')!;
+  const loginForm = document.getElementById('login-form') as HTMLFormElement;
+  const loginError = document.getElementById('login-error')!;
+  const loginBtn = document.getElementById('login-btn') as HTMLButtonElement;
+  const logoutBtn = document.getElementById('logout-btn')!;
+  const userEmailSpan = document.getElementById('user-email')!;
+  const tableBody = document.getElementById('leads-table-body')!;
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const filterMotivo = document.getElementById('filter-motivo') as HTMLSelectElement;
+  const filterLido = document.getElementById('filter-lido') as HTMLSelectElement;
+
+  const modalOverlay = document.getElementById('lead-modal-overlay')!;
+  const modalBody = document.getElementById('lead-modal-body')!;
+  const modalClose = document.getElementById('lead-modal-close')!;
+  const toggleReadBtn = document.getElementById('toggle-read-btn')!;
+  const toggleReadLabel = document.getElementById('toggle-read-label')!;
+  const deleteLeadBtn = document.getElementById('delete-lead-btn')!;
+
+  let allLeads: Lead[] = [];
+  let currentLeadId: string | null = null;
+  let unsubscribeLeads: (() => void) | null = null;
+
+  const MOTIVO_LABELS: Record<string, string> = {
+    'lei-informatica': 'Lei de Informática',
+    'projeto-ia': 'Projeto de IA',
+    'consultoria': 'Consultoria estratégica',
+    'parceria': 'Parceria',
+    'outro': 'Outro',
+  };
+
+  const CARGO_LABELS: Record<string, string> = {
+    'ceo': 'CEO / Diretor(a)',
+    'cto': 'CTO / CIO',
+    'gerente': 'Gerente',
+    'coordenador': 'Coordenador(a)',
+    'analista': 'Analista',
+    'outro': 'Outro',
+  };
+
+  const SERVICO_LABELS: Record<string, string> = {
+    'openai-modelos': 'Modelos Preditivos',
+    'cloud': 'Cloud Computing & Escalabilidade',
+    'bigdata': 'Big Data & Insights Acionáveis',
+    'ml-automacao': 'Machine Learning & Automação',
+    'todos': 'Todos os serviços',
+  };
+
+  // ── Auth ──
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loginError.classList.add('hidden');
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Entrando...';
+
+    const email = (document.getElementById('login-email') as HTMLInputElement).value;
+    const password = (document.getElementById('login-password') as HTMLInputElement).value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err: any) {
+      loginError.textContent = 'Email ou senha incorretos.';
+      loginError.classList.remove('hidden');
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Entrar';
+    }
+  });
+
+  logoutBtn.addEventListener('click', () => signOut(auth));
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      loginScreen.classList.add('hidden');
+      dashboardScreen.classList.remove('hidden');
+      userEmailSpan.textContent = user.email || '';
+      subscribeToLeads();
+    } else {
+      loginScreen.classList.remove('hidden');
+      dashboardScreen.classList.add('hidden');
+      if (unsubscribeLeads) {
+        unsubscribeLeads();
+        unsubscribeLeads = null;
+      }
+    }
+  });
+
+  // ── Firestore Realtime ──
+
+  function subscribeToLeads() {
+    const q = query(collection(db, 'leads'), orderBy('criadoEm', 'desc'));
+    unsubscribeLeads = onSnapshot(q, (snapshot) => {
+      allLeads = snapshot.docs.map((d) => ({ id: d.id, ...d.data() } as Lead));
+      updateStats();
+      renderTable();
+    });
+  }
+
+  // ── Stats ──
+
+  function updateStats() {
+    document.getElementById('stat-total')!.textContent = String(allLeads.length);
+    document.getElementById('stat-unread')!.textContent = String(allLeads.filter((l) => !l.lido).length);
+
+    const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    const recentCount = allLeads.filter((l) => {
+      if (!l.criadoEm) return false;
+      return l.criadoEm.toMillis() > weekAgo;
+    }).length;
+    document.getElementById('stat-week')!.textContent = String(recentCount);
+  }
+
+  // ── Table Rendering ──
+
+  function getFilteredLeads(): Lead[] {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const motivoFilter = filterMotivo.value;
+    const lidoFilter = filterLido.value;
+
+    return allLeads.filter((lead) => {
+      if (searchTerm) {
+        const haystack = `${lead.nome} ${lead.email} ${lead.empresa}`.toLowerCase();
+        if (!haystack.includes(searchTerm)) return false;
+      }
+      if (motivoFilter && lead.motivo !== motivoFilter) return false;
+      if (lidoFilter !== '' && String(lead.lido ?? false) !== lidoFilter) return false;
+      return true;
+    });
+  }
+
+  function formatDate(ts?: Timestamp): string {
+    if (!ts) return '—';
+    const d = ts.toDate();
+    return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  function renderTable() {
+    const leads = getFilteredLeads();
+
+    if (leads.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="7" class="px-5 py-12 text-center text-on-surface-variant">
+            <span class="material-symbols-outlined text-4xl mb-2 block opacity-40">inbox</span>
+            Nenhum lead encontrado.
+          </td>
+        </tr>`;
+      return;
+    }
+
+    tableBody.innerHTML = leads.map((lead) => `
+      <tr class="border-b border-outline-variant/15 hover:bg-surface-container transition-colors cursor-pointer" data-lead-id="${lead.id}">
+        <td class="px-5 py-4">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${lead.lido ? 'bg-surface-container text-on-surface-variant' : 'bg-primary/15 text-primary'}">
+            <span class="w-1.5 h-1.5 rounded-full ${lead.lido ? 'bg-on-surface-variant/40' : 'bg-primary'}"></span>
+            ${lead.lido ? 'Lido' : 'Novo'}
+          </span>
+        </td>
+        <td class="px-5 py-4 text-on-surface font-medium">${lead.nome || '—'}</td>
+        <td class="px-5 py-4 text-on-surface-variant">${lead.email || '—'}</td>
+        <td class="px-5 py-4 text-on-surface-variant hidden md:table-cell">${lead.empresa || '—'}</td>
+        <td class="px-5 py-4 text-on-surface-variant hidden lg:table-cell">${MOTIVO_LABELS[lead.motivo || ''] || lead.motivo || '—'}</td>
+        <td class="px-5 py-4 text-on-surface-variant hidden lg:table-cell text-nowrap">${formatDate(lead.criadoEm)}</td>
+        <td class="px-5 py-4">
+          <button class="view-lead-btn text-primary hover:text-primary-dim transition-colors cursor-pointer" data-id="${lead.id}">
+            <span class="material-symbols-outlined text-xl">visibility</span>
+          </button>
+        </td>
+      </tr>
+    `).join('');
+
+    tableBody.querySelectorAll('tr[data-lead-id]').forEach((row) => {
+      row.addEventListener('click', () => {
+        const id = (row as HTMLElement).dataset.leadId;
+        if (id) openLeadModal(id);
+      });
+    });
+  }
+
+  searchInput.addEventListener('input', renderTable);
+  filterMotivo.addEventListener('change', renderTable);
+  filterLido.addEventListener('change', renderTable);
+
+  // ── Lead Detail Modal ──
+
+  function openLeadModal(id: string) {
+    const lead = allLeads.find((l) => l.id === id);
+    if (!lead) return;
+    currentLeadId = id;
+
+    const fields = [
+      { label: 'Nome', value: lead.nome },
+      { label: 'Email', value: lead.email },
+      { label: 'Celular', value: lead.celular },
+      { label: 'Cargo', value: CARGO_LABELS[lead.cargo || ''] || lead.cargo },
+      { label: 'Empresa', value: lead.empresa },
+      { label: 'Tamanho da empresa', value: lead.tamanho },
+      { label: 'Mercado', value: lead.mercado },
+      { label: 'Motivo do contato', value: MOTIVO_LABELS[lead.motivo || ''] || lead.motivo },
+      { label: 'Serviço de interesse', value: SERVICO_LABELS[lead.servico || ''] || lead.servico },
+      { label: 'Contato preferido', value: lead.contato_preferencia === 'whatsapp' ? 'WhatsApp' : 'Email' },
+      { label: 'Data', value: formatDate(lead.criadoEm) },
+    ];
+
+    modalBody.innerHTML = `
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        ${fields.map((f) => `
+          <div class="space-y-1">
+            <p class="text-on-surface-variant text-xs uppercase tracking-wider">${f.label}</p>
+            <p class="text-on-surface text-sm font-medium">${f.value || '—'}</p>
+          </div>
+        `).join('')}
+      </div>
+      <div class="space-y-1 pt-2">
+        <p class="text-on-surface-variant text-xs uppercase tracking-wider">Mensagem</p>
+        <p class="text-on-surface text-sm leading-relaxed bg-surface-container rounded-lg p-4">${lead.mensagem || '—'}</p>
+      </div>
+    `;
+
+    toggleReadLabel.textContent = lead.lido ? 'Marcar como não lido' : 'Marcar como lido';
+    modalOverlay.classList.remove('hidden');
+    modalOverlay.classList.add('flex');
+  }
+
+  function closeLeadModal() {
+    modalOverlay.classList.add('hidden');
+    modalOverlay.classList.remove('flex');
+    currentLeadId = null;
+  }
+
+  modalClose.addEventListener('click', closeLeadModal);
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeLeadModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) closeLeadModal();
+  });
+
+  toggleReadBtn.addEventListener('click', async () => {
+    if (!currentLeadId) return;
+    const lead = allLeads.find((l) => l.id === currentLeadId);
+    if (!lead) return;
+    await updateDoc(doc(db, 'leads', currentLeadId), { lido: !lead.lido });
+    closeLeadModal();
+  });
+
+  deleteLeadBtn.addEventListener('click', async () => {
+    if (!currentLeadId) return;
+    if (!confirm('Tem certeza que deseja excluir este lead?')) return;
+    await deleteDoc(doc(db, 'leads', currentLeadId));
+    closeLeadModal();
+  });
+</script>

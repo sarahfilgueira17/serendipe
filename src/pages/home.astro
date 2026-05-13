@@ -8,7 +8,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
   <!-- TopAppBar Navigation -->
   <header class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 ambient-shadow">
     <nav class="flex flex-row-reverse lg:flex-row justify-between items-center px-6 lg:px-12 xl:px-20 h-16 lg:h-20 w-full max-w-[1440px] mx-auto">
-      <a href="/">
+      <a href="/home">
         <img src={logoSerendipe.src} alt="Serendipe" class="h-10 lg:h-14 w-auto" />
       </a>
 
@@ -38,7 +38,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
   <!-- Mobile Menu Drawer -->
   <nav id="mobile-menu" class="fixed top-0 left-0 h-full w-72 z-[70] bg-surface-container-lowest/95 backdrop-blur-xl border-r border-outline-variant/20 translate-x-[-100%] transition-transform duration-300 ease-out lg:hidden flex flex-col">
     <div class="flex items-center justify-between px-6 h-16">
-      <a href="/" id="mobile-menu-logo">
+      <a href="/home" id="mobile-menu-logo">
         <img src={logoSerendipe.src} alt="Serendipe" class="h-9 w-auto" />
       </a>
       <button id="menu-close" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" aria-label="Fechar menu">
@@ -1239,7 +1239,7 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
     const backdrop = document.getElementById('form-modal-backdrop');
     const closeBtn = document.getElementById('form-modal-close');
     const openBtns = document.querySelectorAll('.open-form-modal');
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
     if (!overlay) return;
 
     function openModal() {
@@ -1267,23 +1267,60 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
       }
     });
 
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const content = document.getElementById('form-modal-content');
       if (!content) return;
 
-      content.innerHTML = `
-        <div class="form-success">
-          <span class="material-symbols-outlined">check_circle</span>
-          <h3 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Mensagem enviada!</h3>
-          <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-sm mx-auto mb-8">
-            Obrigado pelo interesse. Nossa equipe entrará em contato em breve.
-          </p>
-          <button type="button" id="form-success-close" class="gradient-primary text-on-primary-container px-8 py-3 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300 cursor-pointer">
-            Fechar
-          </button>
-        </div>
-      `;
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+      }
+
+      try {
+        const { db } = await import('../lib/firebase');
+        const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+
+        const formData = new FormData(form);
+        const data: Record<string, string> = {};
+        formData.forEach((value, key) => {
+          data[key] = value.toString();
+        });
+
+        await addDoc(collection(db, 'leads'), {
+          ...data,
+          criadoEm: serverTimestamp(),
+          lido: false,
+        });
+
+        content.innerHTML = `
+          <div class="form-success">
+            <span class="material-symbols-outlined">check_circle</span>
+            <h3 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Mensagem enviada!</h3>
+            <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-sm mx-auto mb-8">
+              Obrigado pelo interesse. Nossa equipe entrará em contato em breve.
+            </p>
+            <button type="button" id="form-success-close" class="gradient-primary text-on-primary-container px-8 py-3 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300 cursor-pointer">
+              Fechar
+            </button>
+          </div>
+        `;
+      } catch (err) {
+        console.error('Erro ao salvar lead:', err);
+        content.innerHTML = `
+          <div class="form-success">
+            <span class="material-symbols-outlined text-red-400">error</span>
+            <h3 class="font-headline text-xl lg:text-2xl font-semibold text-white mb-3">Erro ao enviar</h3>
+            <p class="text-on-surface-variant text-sm lg:text-base leading-relaxed max-w-sm mx-auto mb-8">
+              Ocorreu um erro. Tente novamente ou entre em contato por outro canal.
+            </p>
+            <button type="button" id="form-success-close" class="gradient-primary text-on-primary-container px-8 py-3 rounded-full font-headline font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_15px_rgba(127,155,194,0.3)] transition-all duration-300 cursor-pointer">
+              Fechar
+            </button>
+          </div>
+        `;
+      }
 
       document.getElementById('form-success-close')?.addEventListener('click', () => {
         closeModal();

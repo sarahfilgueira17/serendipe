@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import logoSerendipe from '../assets/LOGO SERENDIPE SITE.webp';
 import samyDana from '../assets/Samy Dana Co Founder.svg';
+import heroBg from '../assets/Serendipe Background (2).png';
 ---
 
 <Layout title="Serendipe — Home">
@@ -74,9 +75,10 @@ import samyDana from '../assets/Samy Dana Co Founder.svg';
   <main class="w-full overflow-x-hidden">
     <!-- Hero Section -->
     <section class="relative min-h-[auto] lg:min-h-screen flex items-center justify-center px-6 lg:px-12 xl:px-20 pt-52 pb-28 lg:pt-0 lg:pb-0 overflow-hidden">
-      <!-- Background Video -->
+      <!-- Background Video with image fallback -->
       <div class="absolute inset-0 -z-20 overflow-hidden">
-        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+        <img src={heroBg.src} alt="" class="absolute inset-0 w-full h-full object-cover" />
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster={heroBg.src}>
           <source src="/Serendipe Background (1).mp4" type="video/mp4" />
         </video>
       </div>
